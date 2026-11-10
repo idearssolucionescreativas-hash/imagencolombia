@@ -3,1091 +3,949 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Image Colombia — Tablero de Psicología del Consumidor</title>
+<title>Image Colombia — Buyer Personas 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --azul:#1F5EFF;
-  --azul-dark:#1446C7;
-  --azul-light:#6F98FF;
-  --azul-glow:rgba(31,94,255,0.35);
-  --rojo:#00A7C4;
-  --rojo-dark:#00809A;
-  --rojo-glow:rgba(0,167,196,0.35);
-  --blanco:#FFFFFF;
-  --negro:#000000;
-  --bg-0:#050B16;
-  --bg-1:#0B1F3A;
-  --bg-2:#0F2546;
-  --panel:rgba(255,255,255,0.04);
-  --panel-border:rgba(255,255,255,0.10);
-  --texto:#E9EEF4;
-  --texto-sec:#AEBBD0;
-  --texto-tenue:#7C8A9C;
-  --success:#3BAA6E;
-  --gold:#D9A648;
-  --font-h:'Montserrat', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
-  --font-b:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
-  --radius:1rem;
-}
-
-*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-html{-webkit-text-size-adjust:100%; scroll-behavior:auto;}
-
-body{
-  margin:0;
-  background:var(--bg-0);
-  color:var(--texto);
-  font-family:var(--font-b);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.6;
-  overflow:hidden;
-  height:100vh;
-  height:100dvh;
-}
-
-h1,h2,h3,h4{font-family:var(--font-h); margin:0; color:#fff;}
-p{margin:0 0 0.9rem; color:var(--texto-sec);}
-a{color:var(--azul-light);}
-::selection{background:var(--azul); color:#fff;}
-
-/* ============ APP SHELL ============ */
-.app{
-  display:flex;
-  height:100vh;
-  height:100dvh;
-  width:100%;
-}
-
-/* ============ SIDEBAR ============ */
-#sidebar{
-  width:300px;
-  min-width:300px;
-  background:linear-gradient(180deg, var(--bg-1) 0%, #071428 100%);
-  border-right:1px solid var(--panel-border);
-  padding:1.6rem 1.2rem;
-  padding-top:max(1.6rem, env(safe-area-inset-top));
-  padding-left:max(1.2rem, env(safe-area-inset-left));
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  transition:transform 0.3s ease;
-  z-index:60;
-}
-
-.sidebar-logo{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  margin-bottom:0.3rem;
-}
-
-.sidebar-logo .mark{
-  width:2.4rem; height:2.4rem;
-  border-radius:0.6rem;
-  background:linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-h); font-weight:800; color:#fff; font-size:0.95rem;
-  flex-shrink:0;
-  box-shadow:0 4px 14px -4px var(--azul-glow);
-}
-
-.sidebar-logo .name{
-  font-family:var(--font-h);
-  font-weight:800;
-  font-size:1.05rem;
-  letter-spacing:0.01em;
-  color:#fff;
-  line-height:1.15;
-}
-.sidebar-logo .name span{color:var(--rojo);}
-
-.sidebar-tag{
-  font-size:0.7rem;
-  color:var(--texto-tenue);
-  margin:0.5rem 0 1.5rem;
-  padding-bottom:1.3rem;
-  border-bottom:1px solid var(--panel-border);
-  letter-spacing:0.02em;
-}
-
-nav.navlist{display:flex; flex-direction:column; gap:0.15rem;}
-
-.nav-group-label{
-  font-size:0.65rem;
-  font-weight:700;
-  letter-spacing:0.09em;
-  text-transform:uppercase;
-  color:var(--texto-tenue);
-  margin:1.05rem 0 0.4rem;
-  padding:0 0.7rem;
-}
-.nav-group-label:first-child{margin-top:0;}
-
-.navlink{
-  display:flex;
-  align-items:center;
-  gap:0.65rem;
-  padding:0.55rem 0.7rem;
-  border-radius:0.6rem;
-  font-size:0.83rem;
-  font-weight:500;
-  color:var(--texto-sec);
-  cursor:pointer;
-  border:1px solid transparent;
-  user-select:none;
-  transition:background 0.15s ease, color 0.15s ease;
-}
-
-.navlink .n{
-  font-family:var(--font-h);
-  font-weight:700;
-  font-size:0.68rem;
-  color:var(--texto-tenue);
-  min-width:1.3rem;
-}
-
-.navlink:hover{background:var(--panel); color:#fff;}
-
-.navlink.active{
-  background:rgba(31,94,255,0.16);
-  border-color:rgba(31,94,255,0.4);
-  color:#fff;
-}
-.navlink.active .n{color:var(--azul-light);}
-
-#menuToggle{
-  display:none;
-  position:fixed;
-  top:max(1rem, env(safe-area-inset-top));
-  right:max(1rem, env(safe-area-inset-right));
-  z-index:80;
-  width:2.7rem; height:2.7rem;
-  border-radius:0.7rem;
-  background:var(--azul);
-  border:none;
-  -webkit-appearance:none;
-  appearance:none;
-  color:#fff;
-  font-size:1.2rem;
-  cursor:pointer;
-  box-shadow:0 6px 18px -6px rgba(0,0,0,0.5);
-}
-
-#overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:55;
-}
-
-/* ============ MAIN ============ */
-#main{
-  flex:1;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  height:100%;
-  background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(31,94,255,0.14), transparent 60%),
-    radial-gradient(900px 500px at -10% 30%, rgba(0,167,196,0.08), transparent 55%),
-    var(--bg-0);
-  scroll-behavior:smooth;
-}
-
-.content{
-  max-width:62rem;
-  margin:0 auto;
-  padding:2.4rem 2.6rem 6rem;
-  padding-top:max(2.4rem, env(safe-area-inset-top));
-}
-
-section.block{
-  padding-top:1.4rem;
-  margin-bottom:3.2rem;
-  scroll-margin-top:1.5rem;
-  animation:fadeInUp 0.5s ease both;
-}
-@keyframes fadeInUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
-
-.eyebrow{
-  display:flex; align-items:center; gap:0.5rem;
-  font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--azul-light); margin-bottom:0.6rem;
-}
-.eyebrow::before{content:""; width:1.3rem; height:2px; background:var(--rojo); display:inline-block;}
-
-h2.h-title{font-size:clamp(1.5rem,3vw,2rem); font-weight:800; margin-bottom:0.9rem; letter-spacing:-0.01em;}
-h3.h-sub{font-size:1.15rem; font-weight:700; color:#fff; margin:1.6rem 0 0.7rem;}
-
-/* ============ HEADER META CHIPS ============ */
-.header-hero{
-  display:flex; flex-wrap:wrap; gap:0.5rem; margin:1.1rem 0 1.6rem;
-}
-.chip{
-  background:var(--panel); border:1px solid var(--panel-border);
-  padding:0.4rem 0.85rem; border-radius:999px;
-  font-size:0.72rem; color:var(--texto-sec); font-weight:500;
-  white-space:nowrap;
-}
-.chip b{color:#fff;}
-
-/* ============ INFO CARD / CALLOUT ============ */
-.info-card{
-  background:var(--panel);
-  -webkit-backdrop-filter:blur(12px);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--panel-border);
-  border-radius:var(--radius);
-  padding:1.3rem 1.4rem;
-  margin:1rem 0;
-}
-
-.callout-box{
-  border-radius:var(--radius);
-  padding:1.1rem 1.3rem;
-  margin:1.2rem 0;
-  border-left:3px solid var(--azul);
-  background:rgba(31,94,255,0.08);
-  font-size:0.9rem;
-  color:var(--texto-sec);
-}
-.callout-box.gold{border-left-color:var(--gold); background:rgba(217,166,72,0.08);}
-.callout-box.warn{border-left-color:var(--rojo); background:rgba(0,167,196,0.08);}
-.callout-box.success{border-left-color:var(--success); background:rgba(59,170,110,0.08);}
-.callout-box strong{color:#fff;}
-.callout-box .label{
-  display:block; font-family:var(--font-h); font-weight:700; font-size:0.68rem;
-  letter-spacing:0.08em; text-transform:uppercase; color:var(--azul-light); margin-bottom:0.4rem;
-}
-.callout-box.gold .label{color:var(--gold);}
-.callout-box.warn .label{color:#6FE3F5;}
-.callout-box.success .label{color:#6fd39a;}
-
-/* ============ TABLES ============ */
-.table-container{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  margin:1.2rem 0;
-  border-radius:0.8rem;
-  border:1px solid var(--panel-border);
-}
-table{
-  border-collapse:collapse;
-  width:100%;
-  min-width:540px;
-  font-size:0.82rem;
-}
-thead th{
-  background:rgba(31,94,255,0.18);
-  color:#fff;
-  font-family:var(--font-h);
-  font-weight:700;
-  font-size:0.7rem;
-  text-transform:uppercase;
-  letter-spacing:0.04em;
-  text-align:left;
-  padding:0.75rem 0.9rem;
-  white-space:nowrap;
-}
-tbody td{
-  padding:0.75rem 0.9rem;
-  border-top:1px solid var(--panel-border);
-  color:var(--texto-sec);
-  vertical-align:top;
-}
-tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
-tbody td strong, tbody td b{color:#fff;}
-
-/* ============ FUNNEL ============ */
-.funnel-wrap{display:flex; flex-direction:column; gap:1rem; margin:1.2rem 0;}
-.funnel-block{
-  border-radius:var(--radius);
-  padding:1.3rem 1.4rem;
-  border:1px solid var(--panel-border);
-  position:relative;
-  overflow:hidden;
-}
-.funnel-block::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px;}
-.funnel-block.tofu{background:rgba(59,170,110,0.07);}
-.funnel-block.tofu::before{background:var(--success);}
-.funnel-block.mofu{background:rgba(217,166,72,0.07);}
-.funnel-block.mofu::before{background:var(--gold);}
-.funnel-block.bofu{background:rgba(0,167,196,0.07);}
-.funnel-block.bofu::before{background:var(--rojo);}
-.funnel-head{display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;}
-.funnel-tag{
-  font-family:var(--font-h); font-weight:800; font-size:0.72rem; letter-spacing:0.05em;
-  padding:0.25rem 0.6rem; border-radius:0.4rem; color:#fff;
-}
-.funnel-block.tofu .funnel-tag{background:var(--success);}
-.funnel-block.mofu .funnel-tag{background:var(--gold); color:#2b2005;}
-.funnel-block.bofu .funnel-tag{background:var(--rojo);}
-.funnel-block h4{font-size:1rem; color:#fff;}
-
-/* ============ AWARENESS STEPS ============ */
-.awareness-step{
-  display:flex; gap:1.1rem;
-  background:var(--panel); border:1px solid var(--panel-border);
-  border-radius:var(--radius); padding:1.2rem 1.3rem; margin-bottom:0.9rem;
-}
-.awareness-step .num{
-  font-family:var(--font-h); font-weight:800; font-size:1.8rem;
-  color:transparent; -webkit-text-stroke:1.6px var(--azul-light);
-  min-width:2.6rem; line-height:1;
-}
-.awareness-step .state{
-  display:inline-block; font-size:0.66rem; font-weight:700; text-transform:uppercase;
-  letter-spacing:0.05em; color:var(--gold); margin-bottom:0.3rem;
-}
-.awareness-step h4{font-size:1rem; margin-bottom:0.4rem; color:#fff;}
-.awareness-step .eff-content{
-  margin-top:0.6rem; font-size:0.82rem; padding:0.7rem 0.85rem;
-  background:rgba(255,255,255,0.03); border-radius:0.6rem; border:1px solid var(--panel-border);
-  color:var(--texto-sec);
-}
-.awareness-step .eff-content b{color:var(--azul-light);}
-
-/* ============ FLIP CARDS (SESGOS) ============ */
-.flip-grid{
-  display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; margin:1.4rem 0;
-}
-.card-wrapper{
-  perspective:1600px; height:22rem; cursor:pointer;
-}
-.card-wrapper .flip-inner{
-  position:relative; width:100%; height:100%;
-  transition:transform 0.6s cubic-bezier(.4,.2,.2,1);
-  transform-style:preserve-3d;
-  -webkit-transform-style:preserve-3d;
-}
-.card-wrapper.is-flipped .flip-inner{transform:rotateY(180deg);}
-.card-face{
-  position:absolute; inset:0;
-  border-radius:0.9rem;
-  padding:1.1rem;
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-  display:flex; flex-direction:column;
-  border:1px solid var(--panel-border);
-}
-.card-front{
-  background:linear-gradient(150deg, rgba(31,94,255,0.18), rgba(18,26,38,0.6));
-  align-items:center; justify-content:center; text-align:center; gap:0.6rem;
-}
-.card-front .ico{font-size:2.1rem;}
-.card-front .t{font-family:var(--font-h); font-weight:700; font-size:0.92rem; color:#fff;}
-.card-front .hint{font-size:0.66rem; color:var(--texto-tenue); margin-top:0.3rem;}
-.card-back{
-  background:linear-gradient(160deg, #0B1F3A 0%, #0B0D0F 100%);
-  transform:rotateY(180deg);
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-}
-.card-back .t{font-family:var(--font-h); font-weight:700; font-size:0.86rem; color:var(--gold); margin-bottom:0.4rem;}
-.card-back p{font-size:0.76rem; color:#DCE4EC; margin-bottom:0.6rem;}
-.card-back .ex-label{
-  font-family:var(--font-h); font-weight:700; font-size:0.62rem; text-transform:uppercase;
-  letter-spacing:0.07em; color:#7C8A9C; margin:0.6rem 0 0.4rem;
-}
-.card-back .ex-item{
-  font-size:0.74rem; color:#DCE4EC; background:rgba(59,170,110,0.09);
-  padding:0.55rem 0.65rem; border-radius:0.5rem; border-left:2px solid var(--success);
-  margin-bottom:0.5rem;
-}
-.card-back .ex-item .fmt{
-  display:block; font-family:var(--font-h); font-weight:700; font-size:0.6rem;
-  text-transform:uppercase; letter-spacing:0.06em; color:#6fd39a; margin-bottom:0.22rem;
-}
-.card-back .ex-item .cp{color:#DCE4EC; font-style:italic;}
-
-/* ============ ERRORES GRID ============ */
-.errores-grid{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.2rem 0;}
-.error-card{
-  background:var(--panel); border:1px solid var(--panel-border); border-radius:var(--radius); padding:1.1rem 1.2rem;
-}
-.error-card .err-num{
-  font-family:var(--font-h); font-weight:800; color:var(--rojo); font-size:0.68rem;
-  letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.35rem;
-}
-.error-card h4{font-size:0.92rem; color:#fff; margin-bottom:0.5rem;}
-.error-card .fix{
-  margin-top:0.6rem; padding-top:0.6rem; border-top:1px solid var(--panel-border);
-  font-size:0.8rem; color:#9FD3B0;
-}
-.error-card .fix b{color:var(--success);}
-
-/* ============ CHECKLIST ============ */
-.checklist{list-style:none; margin:1rem 0; padding:0; display:flex; flex-direction:column; gap:0.55rem;}
-.checklist li{
-  display:flex; gap:0.6rem; font-size:0.88rem; color:var(--texto-sec);
-  background:var(--panel); border:1px solid var(--panel-border); border-radius:0.6rem; padding:0.65rem 0.85rem;
-}
-.checklist li::before{content:"☐"; color:var(--azul-light); font-size:1rem; line-height:1.3;}
-
-/* ============ PERSONA CARDS ============ */
-.persona-card{
-  background:var(--panel); border:1px solid var(--panel-border); border-radius:var(--radius);
-  padding:1.2rem 1.3rem; margin-bottom:1rem;
-}
-.persona-card .p-head{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;}
-.persona-card h4{font-size:1rem; color:#fff;}
-.persona-card .p-badge{
-  font-size:0.66rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
-  background:rgba(0,167,196,0.16); color:#6FE3F5; padding:0.28rem 0.6rem; border-radius:999px; border:1px solid rgba(0,167,196,0.35);
-}
-.persona-card .p-meta{font-size:0.76rem; color:var(--texto-tenue); margin-bottom:0.6rem;}
-
-/* ============ STEP FLOW (INTEGRANDO TODO) ============ */
-.flow-steps{display:flex; flex-direction:column; gap:0.7rem; margin:1.2rem 0;}
-.flow-step{
-  display:flex; gap:1rem; align-items:flex-start;
-  background:var(--panel); border:1px solid var(--panel-border); border-radius:0.8rem; padding:0.9rem 1.1rem;
-}
-.flow-step .fs-num{
-  font-family:var(--font-h); font-weight:800; color:#fff; background:var(--azul);
-  min-width:1.8rem; height:1.8rem; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  font-size:0.82rem; flex-shrink:0;
-}
-.flow-step p{margin:0; font-size:0.87rem;}
-
-/* footer nav dots / scrollbar */
-#main::-webkit-scrollbar, #sidebar::-webkit-scrollbar{width:8px;}
-#main::-webkit-scrollbar-thumb, #sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12); border-radius:8px;}
-
-.foot-note{
-  margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--panel-border);
-  font-size:0.72rem; color:var(--texto-tenue); text-align:center;
-}
-
-/* ============ RESPONSIVE ============ */
-@media (max-width:1024px){
-  #sidebar{
-    position:fixed; top:0; left:0; bottom:0;
-    transform:translateX(-100%);
+  :root{
+    --azul:#1F5EFF;
+    --azul-dark:#0B1F3A;
+    --azul-soft:#EAF0FF;
+    --rojo:#00A7C4;
+    --rojo-soft:#E0F6FA;
+    --blanco:#FFFFFF;
+    --negro:#0B0D0F;
+    --gris-texto:#5B6675;
+    --gris-borde:#E1E7EE;
+    --gris-fondo:#EEF3FA;
+    --radius:1.1rem;
+    --font-titular:'Montserrat', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    --font-texto:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
   }
-  #sidebar.open{transform:translateX(0);}
-  #overlay.show{display:block;}
-  #menuToggle{display:flex; align-items:center; justify-content:center;}
-  .content{padding:4.4rem 1.6rem 5rem;}
-  .flip-grid{grid-template-columns:repeat(2,1fr);}
-  .errores-grid{grid-template-columns:1fr;}
-}
 
-@media (max-width:768px){
-  .content{padding:4.4rem 1.2rem 5rem;}
-  h1.h1-title{font-size:2rem;}
-  h2.h-title{font-size:1.5rem;}
-  .flip-grid{grid-template-columns:1fr;}
-  .card-wrapper{height:23rem;}
-  table{-webkit-overflow-scrolling:touch;}
-  .table-container{display:block;}
-}
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
 
-@media (max-width:390px){
-  h1.h1-title{font-size:1.75rem;}
-  h2.h-title{font-size:1.35rem;}
-  .content{padding-left:1rem; padding-right:1rem;}
-  .card-wrapper{min-height:320px; height:320px;}
-  .chip{font-size:0.72rem;}
-  .flip-grid{grid-template-columns:1fr;}
-  .errores-grid{grid-template-columns:1fr;}
-  body, p, li, td{font-size:0.85rem;}
-}
-</style>
-<style>
-.mono{font-family:'JetBrains Mono', ui-monospace, Menlo, monospace; font-size:0.72rem; color:var(--rojo); letter-spacing:0.02em;}
-.line-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:1.2rem 0;}
-.line-card{background:var(--panel); border:1px solid var(--panel-border); border-radius:var(--radius); padding:1.1rem 1.1rem 1rem; position:relative; overflow:hidden;}
-.line-card::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--azul);}
-.line-card.c2::before{background:var(--rojo);}
-.line-card.c3::before{background:var(--gold);}
-.line-card h4{font-size:0.98rem; color:#fff; margin:0.35rem 0 0.5rem;}
-.line-card p{font-size:0.84rem; margin-bottom:0.5rem;}
-.line-card .promise{font-size:0.82rem; color:#fff; font-style:italic; border-top:1px solid var(--panel-border); padding-top:0.55rem; margin-top:0.4rem;}
-.soph{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0.5rem; margin:1rem 0;}
-.soph div{background:var(--panel); border:1px solid var(--panel-border); border-radius:0.7rem; padding:0.7rem 0.6rem; font-size:0.76rem; color:var(--texto-sec);}
-.soph div b{display:block; font-family:var(--font-h); color:#fff; font-size:0.85rem; margin-bottom:0.25rem;}
-.soph div.on{border-color:var(--rojo); background:rgba(0,167,196,0.12);}
-.soph div.on b{color:var(--rojo);}
-@media (max-width:900px){
-  .line-grid{grid-template-columns:1fr;}
-  .soph{grid-template-columns:1fr 1fr;}
-}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--gris-fondo);
+    color:var(--negro);
+    font-family:var(--font-texto);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+
+  a{color:inherit;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
+    color:var(--blanco);
+    padding:2.4rem 1.25rem 2rem;
+  }
+
+  .header-inner{
+    max-width:75rem;
+    margin:0 auto;
+  }
+
+  .brand-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:1rem;
+  }
+
+  .logo{
+    font-family:var(--font-titular);
+    font-weight:800;
+    letter-spacing:0.02em;
+    font-size:clamp(1.8rem, 5vw, 2.6rem);
+    text-transform:uppercase;
+    line-height:1.05;
+  }
+
+  .logo span{color:#7FE6F7;}
+
+  .tagline{
+    font-family:var(--font-texto);
+    font-weight:400;
+    font-style:italic;
+    font-size:clamp(0.85rem, 2vw, 1rem);
+    opacity:0.92;
+    text-align:right;
+    max-width:22rem;
+  }
+
+  .kicker{
+    margin-top:0.6rem;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-size:clamp(0.72rem, 1.8vw, 0.82rem);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    opacity:0.85;
+    font-weight:500;
+  }
+
+  .kicker::before{
+    content:"";
+    width:1.6rem;
+    height:2px;
+    background:var(--rojo);
+    display:inline-block;
+  }
+
+  .b2b-note{
+    margin-top:1rem;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.22);
+    border-left:3px solid var(--rojo);
+    border-radius:0.6rem;
+    padding:0.7rem 0.9rem;
+    font-size:0.78rem;
+    line-height:1.45;
+    max-width:42rem;
+  }
+
+  .b2b-note strong{color:#7FE6F7;}
+
+  .lineas-row{
+    margin-top:1.2rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+  }
+
+  .linea-pill{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.28);
+    padding:0.38rem 0.85rem;
+    border-radius:999px;
+    font-size:0.72rem;
+    font-weight:500;
+    letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .stats-bar{
+    background:var(--blanco);
+    border-bottom:1px solid var(--gris-borde);
+    padding:1.1rem 1.25rem;
+  }
+
+  .stats-inner{
+    max-width:75rem;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.8rem 2.4rem;
+  }
+
+  .stat{
+    display:flex;
+    align-items:baseline;
+    gap:0.5rem;
+  }
+
+  .stat-num{
+    font-family:var(--font-titular);
+    font-weight:800;
+    font-size:clamp(1.5rem, 3.5vw, 1.9rem);
+    color:var(--azul);
+  }
+
+  .stat-label{
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--gris-texto);
+    font-weight:500;
+  }
+
+  /* ---------- FILTERS ---------- */
+  .filter-bar{
+    max-width:75rem;
+    margin:0 auto;
+    padding:1.3rem 1.25rem 0.4rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.55rem;
+  }
+
+  .filter-btn{
+    font-family:var(--font-texto);
+    border:1px solid var(--gris-borde);
+    background:var(--blanco);
+    color:var(--gris-texto);
+    padding:0.5rem 1rem;
+    border-radius:999px;
+    font-size:0.78rem;
+    font-weight:500;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+
+  .filter-btn:hover{border-color:var(--azul);}
+
+  .filter-btn.active{
+    background:var(--azul);
+    border-color:var(--azul);
+    color:var(--blanco);
+  }
+
+  .hint{
+    max-width:75rem;
+    margin:0.7rem auto 0;
+    padding:0 1.25rem;
+    font-size:0.76rem;
+    color:var(--gris-texto);
+    display:flex;
+    align-items:center;
+    gap:0.4rem;
+  }
+
+  .hint .ico{color:var(--rojo); font-weight:700;}
+
+  /* ---------- GRID ---------- */
+  main{
+    max-width:75rem;
+    margin:0 auto;
+    padding:1rem 1.25rem 3rem;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.3rem;
+  }
+
+  @media (min-width:640px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (min-width:1024px){
+    .grid{grid-template-columns:repeat(3, 1fr);}
+  }
+
+  /* ---------- FLIP CARD ---------- */
+  .card-flip{
+    perspective:1800px;
+    height:27rem;
+    cursor:pointer;
+  }
+
+  .flip-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform 0.65s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+
+  .card-flip.flipped .flip-inner{transform:rotateY(180deg);}
+
+  .face{
+    position:absolute;
+    inset:0;
+    background:var(--blanco);
+    border:1px solid var(--gris-borde);
+    border-radius:var(--radius);
+    padding:1.4rem 1.3rem 1.2rem;
+    display:flex;
+    flex-direction:column;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    overflow-y:auto;
+    box-shadow:0 10px 28px -18px rgba(20,30,45,0.25);
+  }
+
+  .card-flip.priority .face-front{
+    border-color:var(--rojo);
+    box-shadow:0 8px 24px -14px rgba(0,167,196,0.35);
+  }
+
+  .face-back{
+    transform:rotateY(180deg);
+    background:var(--negro);
+    background:linear-gradient(160deg, #0B1F3A 0%, #0B0D0F 100%);
+    border-color:transparent;
+    color:var(--blanco);
+  }
+
+  .priority-flag{
+    position:absolute;
+    top:0;
+    right:0;
+    background:var(--rojo);
+    color:var(--blanco);
+    font-size:0.62rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:0.32rem 0.7rem 0.32rem 0.9rem;
+    border-bottom-left-radius:0.8rem;
+  }
+
+  .card-top{
+    display:flex;
+    align-items:flex-start;
+    gap:0.8rem;
+    margin-bottom:0.7rem;
+  }
+
+  .card-num{
+    font-family:var(--font-titular);
+    font-weight:800;
+    font-size:1.5rem;
+    -webkit-text-stroke:1.5px var(--azul);
+    color:transparent;
+    line-height:1;
+    flex-shrink:0;
+    min-width:2.2rem;
+  }
+
+  .card-title{
+    font-family:var(--font-titular);
+    font-weight:700;
+    font-size:1.02rem;
+    line-height:1.25;
+    color:var(--negro);
+  }
+
+  .card-meta{
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--azul);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-bottom:0.6rem;
+  }
+
+  .segment-badge{
+    display:inline-block;
+    background:var(--azul-soft);
+    color:var(--azul-dark);
+    font-size:0.66rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:0.28rem 0.6rem;
+    border-radius:999px;
+    margin-bottom:0.8rem;
+    width:fit-content;
+  }
+
+  .card-desc{
+    font-size:0.86rem;
+    color:var(--gris-texto);
+    margin-bottom:0.9rem;
+    flex-grow:1;
+  }
+
+  .card-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-top:1px solid var(--gris-borde);
+    padding-top:0.75rem;
+    margin-top:auto;
+  }
+
+  .dolores-count{
+    font-size:0.74rem;
+    color:var(--gris-texto);
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:0.35rem;
+  }
+
+  .dot-row{display:flex; gap:0.22rem;}
+  .dot-row span{width:5px; height:5px; border-radius:50%; background:var(--rojo); display:inline-block;}
+
+  .flip-btn{
+    background:none;
+    border:none;
+    color:var(--azul);
+    font-weight:600;
+    font-size:0.78rem;
+    cursor:pointer;
+    font-family:var(--font-texto);
+    display:flex;
+    align-items:center;
+    gap:0.3rem;
+    padding:0;
+  }
+
+  .flip-btn .arrow{transition:transform 0.2s ease;}
+
+  /* ---------- BACK FACE ---------- */
+  .back-label{
+    font-size:0.66rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#6FE3F5;
+    margin-bottom:0.35rem;
+  }
+
+  .back-title{
+    font-family:var(--font-titular);
+    font-weight:700;
+    font-size:0.94rem;
+    line-height:1.25;
+    color:var(--blanco);
+    margin-bottom:0.9rem;
+    padding-bottom:0.9rem;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+
+  .dolores-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+    flex-grow:1;
+  }
+
+  .dolores-list li{
+    display:flex;
+    gap:0.55rem;
+    font-size:0.78rem;
+    line-height:1.4;
+    color:#E7ECF2;
+    background:rgba(255,255,255,0.06);
+    border-radius:0.55rem;
+    padding:0.55rem 0.65rem;
+  }
+
+  .dolores-list li::before{
+    content:"";
+    flex-shrink:0;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--rojo);
+    margin-top:0.4rem;
+  }
+
+  .back-btn{
+    color:#BFD4EA;
+    margin-top:0.9rem;
+    padding-top:0.8rem;
+    border-top:1px solid rgba(255,255,255,0.14);
+  }
+
+  /* ---------- OBSERVACIONES ---------- */
+  .observaciones{
+    margin-top:2.6rem;
+    background:var(--negro);
+    background:linear-gradient(160deg, #071428 0%, #0B0D0F 100%);
+    border-radius:1.4rem;
+    padding:2rem 1.4rem 2.2rem;
+    color:var(--blanco);
+  }
+
+  .observaciones h2{
+    font-family:var(--font-titular);
+    font-weight:800;
+    font-size:clamp(1.3rem, 3.5vw, 1.7rem);
+    margin:0 0 0.4rem;
+  }
+
+  .observaciones .sub{
+    font-size:0.86rem;
+    color:#B9C6D6;
+    margin-bottom:1.6rem;
+    max-width:44rem;
+  }
+
+  .priority-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+    margin-bottom:1.8rem;
+  }
+
+  @media (min-width:768px){
+    .priority-grid{grid-template-columns:repeat(3, 1fr);}
+  }
+
+  .priority-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:1rem;
+    padding:1.2rem 1.1rem;
+  }
+
+  .priority-card .p-rank{
+    color:var(--rojo);
+    font-family:var(--font-titular);
+    font-weight:800;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom:0.5rem;
+  }
+
+  .priority-card h3{
+    font-family:var(--font-titular);
+    font-size:0.98rem;
+    margin:0 0 0.5rem;
+    line-height:1.3;
+  }
+
+  .priority-card p{
+    font-size:0.8rem;
+    color:#C9D4E1;
+    margin:0;
+  }
+
+  .obs-text{
+    font-size:0.86rem;
+    color:#D6DEE8;
+    max-width:50rem;
+    padding-top:1.4rem;
+    border-top:1px solid rgba(255,255,255,0.14);
+  }
+
+  .obs-text strong{color:var(--blanco);}
+
+  footer{
+    text-align:center;
+    padding:1.6rem 1.25rem 2.4rem;
+    font-size:0.72rem;
+    color:#8A97A6;
+  }
+
+  @supports (-webkit-touch-callout: none){
+    body{padding-bottom:env(safe-area-inset-bottom);}
+  }
 </style>
 </head>
 
 <body>
 
-<button id="menuToggle" onclick="toggleSidebar()" aria-label="Abrir menú">☰</button>
-<div id="overlay" onclick="toggleSidebar()"></div>
-
-<div class="app">
-
-  <aside id="sidebar">
-    <div class="sidebar-logo">
-      <div class="mark">IC</div>
-      <div class="name">IMAGE<span>COLOMBIA</span></div>
+<header>
+  <div class="header-inner">
+    <div class="brand-row">
+      <div>
+        <div class="logo">IMAGE<span>COLOMBIA</span></div>
+        <div class="kicker">Buyer Personas B2B · Perfiles de comprador ideal · Bogotá, Colombia · Noviembre 2026</div>
+      </div>
+      <div class="tagline">"Tecnología que transforma empresas"</div>
     </div>
-    <div class="sidebar-tag">Tablero de Psicología del Consumidor · Bogotá, Colombia · Nov 2026</div>
-
-    <nav class="navlist" id="navlist">
-      <div class="nav-group-label">Marco</div>
-      <div class="navlink" data-id="intro" onclick="navTo('intro')"><span class="n">00</span>Introducción</div>
-      <div class="navlink" data-id="fundamentos" onclick="navTo('fundamentos')"><span class="n">01</span>Fundamentos</div>
-      <div class="navlink" data-id="funnel" onclick="navTo('funnel')"><span class="n">02</span>Funnel de Contenido</div>
-      <div class="navlink" data-id="perfiles" onclick="navTo('perfiles')"><span class="n">03</span>Perfiles de Cliente</div>
-
-      <div class="nav-group-label">Psicología</div>
-      <div class="navlink" data-id="reiss" onclick="navTo('reiss')"><span class="n">04</span>16 Deseos de Reiss</div>
-      <div class="navlink" data-id="schwartz" onclick="navTo('schwartz')"><span class="n">05</span>Niveles de Schwartz</div>
-      <div class="navlink" data-id="sesgos" onclick="navTo('sesgos')"><span class="n">06</span>Sesgos de Persuasión</div>
-
-      <div class="nav-group-label">Aplicación</div>
-      <div class="navlink" data-id="integracion" onclick="navTo('integracion')"><span class="n">07</span>Integrando Todo</div>
-      <div class="navlink" data-id="herramientas" onclick="navTo('herramientas')"><span class="n">08</span>Herramientas</div>
-      <div class="navlink" data-id="errores" onclick="navTo('errores')"><span class="n">09</span>Errores Comunes</div>
-      <div class="navlink" data-id="conclusion" onclick="navTo('conclusion')"><span class="n">10</span>Conclusión</div>
-    </nav>
-  </aside>
-
-  <main id="main">
-    <div class="content">
-
-      <!-- ============ 00 INTRO ============ -->
-      <section class="block" id="intro">
-        <div class="eyebrow">Introducción</div>
-        <h1 class="h1-title" style="font-family:var(--font-h); font-weight:800; font-size:clamp(1.9rem,4.5vw,2.6rem); letter-spacing:-0.02em; margin-bottom:0.6rem;">Por qué la psicología del consumidor le importa a Image Colombia</h1>
-        <div class="header-hero">
-          <span class="chip">Categoría <b>B2B · tecnología y transformación empresarial</b></span>
-          <span class="chip">Base <b>Bogotá · proyectos en Colombia</b></span>
-          <span class="chip">Línea prioritaria <b>Software a la medida</b></span>
-          <span class="chip">Eslogan <b>"Tecnología que transforma empresas"</b></span>
-        </div>
-
-        <p>Image Colombia diseña, desarrolla e integra software para que las empresas operen mejor. Su servicio insignia es el <b style="color:#fff;">software a la medida</b>; alrededor de él ofrece dos combos —<b style="color:#fff;">web + automatización con IA</b> y <b style="color:#fff;">marketing digital + contenido multimedia</b>— y es la desarrolladora de <b style="color:#fff;">Ordex</b>, su ERP + CRM, que se trabaja como marca de producto aparte. Su comprador no es un consumidor que compra por impulso: es un gerente, un director de operaciones o de tecnología que va a comprometer presupuesto, datos y la forma en que trabaja su equipo.</p>
-
-        <p>Ese comprador ya escuchó todas las promesas del sector y dejó de creerlas. A eso se le suma un miedo concreto: pagar un desarrollo que nunca se entrega, quedar atado a un proveedor o, en el peor caso, ser estafado. La psicología del consumidor no sirve aquí para presionar una decisión: sirve para <b style="color:#fff;">entender el miedo, describir el problema mejor que el propio cliente y mostrar evidencia</b> en el orden en que la mente del comprador la necesita.</p>
-
-        <div class="callout-box gold">
-          <span class="label">Por qué este mercado es distinto</span>
-          El desarrollo de software y la transformación digital en Colombia están en el <b>nivel 5 de sofisticación</b> (Schwartz): «soluciones integrales», «expertos en tecnología», «control total» y «tenemos IA» ya no significan nada para el comprador. Como se concluyó en la reunión del 9 de noviembre, el diferencial ya no está en la promesa sino en <b>la forma de comunicar</b>: identificación, evidencia y entregar valor antes de pedir la venta.
-        </div>
-      </section>
-
-      <!-- ============ 01 FUNDAMENTOS ============ -->
-      <section class="block" id="fundamentos">
-        <div class="eyebrow">01 · Marco</div>
-        <h2 class="h-title">Fundamentos</h2>
-        <p>Antes de hablar de deseos, niveles de conciencia o sesgos, hay que tener claras cuatro cosas: por qué el comportamiento del comprador pesa tanto en este negocio, cómo decide realmente, qué pilares debe respetar todo el contenido y qué jerarquía de servicios se comunica.</p>
-
-        <h3 class="h-sub">Por qué el comportamiento del cliente importa en esta industria</h3>
-        <p>Quien contrata software a la medida no compra líneas de código: compra la certeza de que el proyecto se entrega, de que su equipo lo va a usar y de que no va a quedar secuestrado por el proveedor. Es una compra de <b style="color:#fff;">alto riesgo percibido</b> (dinero, tiempo, datos y reputación interna de quien la recomienda) y de <b style="color:#fff;">baja tangibilidad</b>: el cliente no puede «probarse» el sistema antes de pagarlo. Por eso el contenido que funciona no es el que más impresiona, es el que más reduce la incertidumbre.</p>
-
-        <h3 class="h-sub">Ciclo de decisión del comprador de Image Colombia</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Paso</th><th>Qué ocurre</th></tr></thead>
-            <tbody>
-              <tr><td><b>1. Identificación del dolor</b></td><td>El problema aparece como síntoma cotidiano, no como «necesito software»: el Excel que solo una persona entiende, pedidos que se pierden entre WhatsApp y el cuaderno, la cifra que nadie tiene a tiempo.</td></tr>
-              <tr><td><b>2. Búsqueda y descubrimiento</b></td><td>Búsqueda en Google, redes (Instagram, Facebook, LinkedIn) o referidos. Llega por un anuncio de Meta a la landing de <i>un solo</i> servicio, nunca al home.</td></tr>
-              <tr><td><b>3. Valor antes que venta</b></td><td>Ve trabajo real (video de 1 a 1,5 min) y descarga el lead magnet en PDF a cambio de nombre, correo y teléfono. Aquí se gana o se pierde la confianza.</td></tr>
-              <tr><td><b>4. Diagnóstico</b></td><td>Se habilita el WhatsApp. El primer contacto es en <i>usted</i> y con una pregunta de diagnóstico, no con un precio. Intervienen más personas: usuario final, contabilidad, tecnología.</td></tr>
-              <tr><td><b>5. Propuesta y cierre</b></td><td>Propuesta por hitos, con alcance, entregables, exclusiones y costos posteriores visibles. El comprador compara costo total y riesgo, no solo tarifa.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="h-sub">Los 3 pilares que guían el contenido de la marca</h3>
-        <div class="info-card">
-          <p><b style="color:#fff;">1. Evidencia antes que promesa.</b> Se muestra lo construido: pantallas funcionando (con datos de prueba), procesos, equipo real y Ordex como prueba de que la empresa crea y sostiene software propio. Ninguna cifra, función o resultado se publica sin soporte.</p>
-          <p><b style="color:#fff;">2. Diagnóstico antes que cotización.</b> Primero se entiende la operación, después se propone. Si una solución estándar resuelve, se dice, aunque no se venda un desarrollo. Esa franqueza es el mayor diferencial en nivel 5.</p>
-          <p style="margin-bottom:0;"><b style="color:#fff;">3. Integrar antes que reemplazar.</b> «No necesitas reemplazar todo. Necesitas conectarlo bien.» Se digitaliza por etapas, conectando lo que ya funciona: menos miedo al cambio y menos costo de cambiar de proveedor.</p>
-        </div>
-
-        <h3 class="h-sub">Jerarquía de servicios (acta 9-nov-2026)</h3>
-        <div class="line-grid">
-          <div class="line-card">
-            <span class="mono">// 01 · prioritaria</span>
-            <h4>Software a la medida</h4>
-            <p>Mayor valor y mayor miedo del comprador. Se vende con autoridad (trayectoria y especialidad) y confianza (desarrollos y casos).</p>
-            <div class="promise">«Software construido alrededor de tu operación, no al revés.»</div>
-          </div>
-          <div class="line-card c2">
-            <span class="mono">// 02 · combo</span>
-            <h4>Web + automatización con IA</h4>
-            <p>Hoy genera muchas consultas de bajo valor. Objetivo: elevar el valor percibido; dejar de venderla como «página».</p>
-            <div class="promise">«Una web que no solo se ve bien: atiende, captura y hace seguimiento.»</div>
-          </div>
-          <div class="line-card c3">
-            <span class="mono">// 03 · combo</span>
-            <h4>Marketing + contenido multimedia</h4>
-            <p>Capacidad complementaria, con producción (grabación, cámaras, motion graphics) junto a un aliado.</p>
-            <div class="promise">«Estrategia y producción en un mismo equipo.»</div>
-          </div>
-        </div>
-        <div class="callout-box">
-          <span class="label">Regla de oro</span>
-          Una pieza, una línea, una landing. Diseño de marca queda fuera de la priorización. Ordex tiene su propio embudo, dominio y red social: la pauta de Image Colombia nunca lleva a Ordex y viceversa. El combo software a la medida + apps sigue en revisión; mientras tanto, las apps se comunican como <i>aplicaciones empresariales</i>, nunca como «crea tu app».
-        </div>
-      </section>
-
-      <!-- ============ 02 FUNNEL ============ -->
-      <section class="block" id="funnel">
-        <div class="eyebrow">02 · Marco</div>
-        <h2 class="h-title">Funnel de Contenido: TOFU / MOFU / BOFU</h2>
-        <p>El funnel es el camino que recorre el comprador desde que apenas siente un síntoma («todo está desordenado») hasta que firma una propuesta por hitos. Por acuerdo de la reunión del 9 de noviembre, <b style="color:#fff;">el trabajo se concentra en TOFU y MOFU</b>; BOFU se activa cuando exista público.</p>
-
-        <div class="funnel-wrap">
-          <div class="funnel-block tofu">
-            <div class="funnel-head"><span class="funnel-tag">TOFU</span><h4>Identificación · principalmente reels</h4></div>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué está pasando:</b> la persona vive el problema, pero no lo nombra como «software». Se queja del síntoma: facturación, nómina, inventarios o pedidos hechos a mano.</p>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué hace la marca:</b> no vende. Muestra el valor o solo el dolor, con una escena tan exacta que el comprador piense «eso me pasa a mí».</p>
-            <p style="margin-bottom:0;"><b style="color:#fff;">CTA:</b> seguir la cuenta o visitar la página. <span class="mono">// ej.</span> <i>«Viernes, 6:40 p. m. Tu equipo sigue cruzando el Excel de pedidos con los mensajes de WhatsApp para saber qué se despachó. No es falta de compromiso. Es falta de sistema.»</i></p>
-          </div>
-          <div class="funnel-block mofu">
-            <div class="funnel-head"><span class="funnel-tag">MOFU</span><h4>Consideración · principalmente carruseles</h4></div>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué está pasando:</b> ya sabe que necesita un sistema y teme equivocarse de proveedor. Evalúa costo, tiempos, riesgo y qué queda en sus manos.</p>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué hace la marca:</b> explica el mecanismo (diagnóstico → desarrollo por hitos → integración → acompañamiento), muestra trabajo real y responde objeciones.</p>
-            <p style="margin-bottom:0;"><b style="color:#fff;">CTA:</b> descargar la guía (formulario) o escribir por WhatsApp. <span class="mono">// ej.</span> carrusel <i>«5 señales de que tu empresa ya no cabe en Excel»</i>.</p>
-          </div>
-          <div class="funnel-block bofu">
-            <div class="funnel-head"><span class="funnel-tag">BOFU</span><h4>Decisión · fase 2 (cuando exista público)</h4></div>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué está pasando:</b> el comprador tiene a Image Colombia en su lista corta y necesita la última prueba para decidir.</p>
-            <p style="margin-bottom:0.6rem;"><b style="color:#fff;">Qué hará la marca:</b> casos documentados, testimonios autorizados, demostraciones y retargeting a quienes descargaron la guía.</p>
-            <p style="margin-bottom:0;"><b style="color:#fff;">CTA:</b> agendar el diagnóstico.</p>
-          </div>
-        </div>
-
-        <h3 class="h-sub">Flujo de conversión por landing (5 pasos)</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Paso</th><th>Qué ocurre</th><th>Palanca psicológica</th></tr></thead>
-            <tbody>
-              <tr><td><b>1. Anuncio en Meta</b></td><td>Una sola línea de servicio. Gancho de identificación, no de promesa.</td><td>Atención selectiva · identificación</td></tr>
-              <tr><td><b>2. Landing del servicio</b></td><td>Video de trabajo real de 1 a 1,5 min. Sin menú, sin pie general, sin botón de contacto genérico.</td><td>Facilidad cognitiva · prueba</td></tr>
-              <tr><td><b>3. Lead magnet PDF</b></td><td>Información útil y honesta, firmada por Image Colombia.</td><td>Reciprocidad · autoridad</td></tr>
-              <tr><td><b>4. Formulario</b></td><td>Pocos campos: nombre, correo, teléfono.</td><td>Compromiso pequeño</td></tr>
-              <tr><td><b>5. WhatsApp habilitado</b></td><td>Primer contacto en usted, con una pregunta de diagnóstico.</td><td>Consistencia · franqueza</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="h-sub">Distribución de contenido por etapa (fase actual)</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Etapa</th><th>% sugerido de la cadencia</th><th>Formato dominante</th></tr></thead>
-            <tbody>
-              <tr><td><b>TOFU</b></td><td>~50%</td><td>Reels de dolor y escena cotidiana; detrás de cámaras</td></tr>
-              <tr><td><b>MOFU</b></td><td>~50%</td><td>Carruseles de mecanismo y objeciones; reels y posts de trabajo real; LinkedIn</td></tr>
-              <tr><td><b>BOFU</b></td><td>0% por ahora</td><td>Se activa con público: casos, testimonios autorizados, retargeting</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ============ 03 PERFILES ============ -->
-      <section class="block" id="perfiles">
-        <div class="eyebrow">03 · Marco</div>
-        <h2 class="h-title">Perfiles de Cliente</h2>
-        <p>Image Colombia habla con compradores que tienen un problema identificable, autoridad para decidir y capacidad de contratar: pymes en crecimiento, empresas medianas y organizaciones que necesitan integrar sistemas, automatizar procesos o desarrollar herramientas propias. Los cuatro perfiles decisores salen de la Guía de Personalidad de Marca y son <b style="color:#fff;">hipótesis de trabajo</b>: deben confirmarse con entrevistas y con los datos de los formularios.</p>
-
-        <div class="persona-card">
-          <div class="p-head"><h4>01 · El Gerente General que depende de una sola persona</h4><span class="p-badge">Prioritario</span></div>
-          <div class="p-meta">Gerente o dueño · pyme en crecimiento o empresa mediana · línea: software a la medida</div>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Deseo:</b> orden, escalabilidad e información confiable para decidir, sin llamar a tres personas para saber cuánto se vendió ayer.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Miedo:</b> invertir en un desarrollo que no se entrega, sale más caro de lo pactado o lo deja atado al proveedor.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Mensaje que conecta:</b> <i>«Deja de depender de que una sola persona tenga el dato.»</i></p>
-          <p style="margin-bottom:0;"><b style="color:#fff;">Etapa natural del funnel:</b> TOFU → MOFU — siente el síntoma y empieza a buscar cómo resolverlo.</p>
-        </div>
-
-        <div class="persona-card">
-          <div class="p-head"><h4>02 · La Directora de Operaciones cansada de los reprocesos</h4><span class="p-badge">Prioritario</span></div>
-          <div class="p-meta">Operaciones · construcción, energía, industria, comercio y distribución · líneas: software a la medida y automatización</div>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Deseo:</b> menos errores, menos digitar dos veces lo mismo y un equipo más productivo.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Miedo:</b> que el software estándar obligue a cambiar la forma de trabajar, o que el equipo no adopte el nuevo sistema y ella cargue con el fracaso.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Mensaje que conecta:</b> <i>«Cada reproceso tiene un costo. Lo hacemos visible y lo eliminamos.»</i></p>
-          <p style="margin-bottom:0;"><b style="color:#fff;">Etapa natural del funnel:</b> MOFU — conoce el problema, evalúa soluciones y proveedores.</p>
-        </div>
-
-        <div class="persona-card">
-          <div class="p-head"><h4>03 · El Director Comercial que pierde contactos</h4><span class="p-badge">Secundario</span></div>
-          <div class="p-meta">Comercial o marketing · líneas: web + IA; marketing + multimedia</div>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Deseo:</b> más oportunidades y que ningún cliente potencial se quede sin respuesta.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Miedo:</b> pagar visitas y pauta que no convierten; formularios que nadie revisa un domingo.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Mensaje que conecta:</b> <i>«Que ningún cliente potencial se quede sin respuesta.»</i></p>
-          <p style="margin-bottom:0;"><b style="color:#fff;">Etapa natural del funnel:</b> TOFU → MOFU.</p>
-        </div>
-
-        <div class="persona-card">
-          <div class="p-head"><h4>04 · El Director de Tecnología con sistemas que no se hablan</h4><span class="p-badge">Secundario</span></div>
-          <div class="p-meta">Tecnología · empresa con varios sistemas (incluso SAP, Salesforce u otros) · líneas: software a la medida e integraciones</div>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Deseo:</b> integrar lo existente y cerrar brechas sin tirar a la basura lo que ya funciona.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Miedo:</b> un proveedor que proponga reemplazarlo todo, sin documentación, seguridad ni plan de continuidad.</p>
-          <p style="margin-bottom:0.4rem;"><b style="color:#fff;">Mensaje que conecta:</b> <i>«Conectamos lo que ya tienes; no te pedimos reemplazarlo.»</i></p>
-          <p style="margin-bottom:0;"><b style="color:#fff;">Etapa natural del funnel:</b> MOFU — compara arquitectura, riesgo y continuidad.</p>
-        </div>
-
-        <div class="callout-box warn">
-          <span class="label">Quién NO es el público prioritario</span>
-          Personas jóvenes con una idea de app y sin presupuesto (el perfil que hoy atrae la campaña de Google de apps); emprendimientos que solo buscan logo o identidad; y quien busca la web más barata sin interés en que funcione como sistema de captación. <b>El lenguaje filtra:</b> hablar de procesos, equipos, pedidos, reprocesos y decisiones atrae a quien tiene una operación que mejorar; hablar de «tu idea» o «tu app» atrae a quien todavía no puede comprar.
-        </div>
-        <div class="callout-box">
-          <span class="label">Participantes de la decisión</span>
-          Además del decisor, intervienen el usuario final del sistema, contabilidad o el asesor externo y, en ocasiones, tecnología. El contenido MOFU también debe responder a sus objeciones: facilidad de uso, datos, accesos y qué queda a nombre de la empresa.
-        </div>
-      </section>
-
-      <!-- ============ 04 REISS ============ -->
-      <section class="block" id="reiss">
-        <div class="eyebrow">04 · Psicología</div>
-        <h2 class="h-title">Los 16 Deseos Humanos de Reiss</h2>
-        <p>Steven Reiss identificó 16 deseos básicos que motivan el comportamiento humano. En una compra B2B no desaparecen: el gerente que contrata un sistema también quiere control, orden, tranquilidad y quedar bien ante su junta. La tabla traduce cada deseo a lo que realmente mueve al comprador de Image Colombia, con un copy usable en el tono de la marca.</p>
-
-        <div class="table-container">
-          <table>
-            <thead><tr><th>#</th><th>Deseo</th><th>Qué significa en simple</th><th>Aplicación a Image Colombia</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td><b>Poder</b></td><td>Sentir control sobre lo que pasa</td><td>Tener la información a tiempo para decidir. Copy: <i>"Una sola versión de la información, a tiempo para decidir."</i></td></tr>
-              <tr><td>2</td><td><b>Independencia</b></td><td>No depender de nadie</td><td>No depender de la persona que entiende el Excel, ni quedar atado al proveedor. Copy: <i>"Deja de depender de que una sola persona tenga el dato."</i></td></tr>
-              <tr><td>3</td><td><b>Curiosidad</b></td><td>Ganas de entender cómo funciona algo</td><td>Entender cómo se construye y se presupuesta un software. Copy: carrusel <i>"Cuánto cuesta desarrollar un software empresarial en Colombia (y de qué depende)"</i>.</td></tr>
-              <tr><td>4</td><td><b>Aceptación</b></td><td>Evitar el juicio o el rechazo</td><td>Que quien recomendó el proyecto no quede mal ante la gerencia o la junta si falla. Copy: <i>"Hitos visibles: tu jefe ve avances, no promesas."</i></td></tr>
-              <tr><td>5</td><td><b>Orden</b></td><td>Que todo esté en su lugar</td><td>El deseo central de la línea de software: información dispersa → un solo sistema. Copy: <i>"Así se ve un proceso de pedidos antes y después de tener sistema."</i></td></tr>
-              <tr><td>6</td><td><b>Ahorro</b></td><td>No gastar de más</td><td>Horas perdidas en reprocesos y costo total, no solo tarifa. Copy: <i>"Cada reproceso tiene un costo. Lo hacemos visible."</i> (sin cifras no medidas).</td></tr>
-              <tr><td>7</td><td><b>Honor</b></td><td>Actuar con principios</td><td>Transparencia tecnológica y franqueza. Copy: <i>"Si una solución estándar te resuelve, te lo decimos."</i></td></tr>
-              <tr><td>8</td><td><b>Idealismo</b></td><td>Contribuir a algo mayor</td><td>Liberar al equipo del trabajo repetitivo para que haga lo que importa. Copy: <i>"Automatiza las tareas repetitivas y libera tiempo de tu equipo."</i></td></tr>
-              <tr><td>9</td><td><b>Contacto social</b></td><td>Pertenecer, compartir con pares</td><td>LinkedIn como espacio de pares directivos: aprendizajes de diagnósticos, decisiones de arquitectura explicadas para gerentes.</td></tr>
-              <tr><td>10</td><td><b>Familia</b></td><td>Proteger lo que sostiene a los suyos</td><td>En la pyme familiar, ordenar la operación es proteger el patrimonio. Uso moderado; no es eje de la marca.</td></tr>
-              <tr><td>11</td><td><b>Estatus</b></td><td>Ser reconocido como referente</td><td>Orgullo de evolucionar. Copy: <i>"Tu empresa dejó de funcionar como hace diez años."</i></td></tr>
-              <tr><td>12</td><td><b>Venganza / competitividad</b></td><td>Superar una mala experiencia o al rival</td><td>Quien ya sufrió un proveedor que no entregó. Copy: <i>"Lo que debes exigir antes de pagar el primer peso de un software."</i> Nunca hablar mal de Siigo, Alegra u Odoo.</td></tr>
-              <tr><td>13</td><td><b>Romance / pasión</b></td><td>Disfrute y orgullo por lo que se hace</td><td>Aplicación limitada: se traduce en el orgullo del Creador por el trabajo bien hecho y visible.</td></tr>
-              <tr><td>14</td><td><b>Comer / gratificación inmediata</b></td><td>Satisfacción rápida, sin fricción</td><td>Aplicación indirecta: lead magnet inmediato y WhatsApp habilitado al instante, sin esperas.</td></tr>
-              <tr><td>15</td><td><b>Actividad / movimiento</b></td><td>Mantenerse en marcha</td><td>Operación que no se frena; web que atiende 24/7. Copy: <i>"Son las 11:15 p. m. Alguien entra a tu web y tiene una pregunta. Nadie responde."</i></td></tr>
-              <tr><td>16</td><td><b>Tranquilidad</b></td><td>Evitar la ansiedad, sentir paz</td><td>El antídoto contra el miedo a contratar software: hitos, entregables, accesos claros. Copy: <i>"Sé qué voy a recibir en cada hito."</i></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout-box success">
-          <span class="label">Ejemplo de combinación de deseos</span>
-          El anuncio de la guía —<i>"¿Tu operación depende de un archivo que solo una persona entiende? Antes de contratar software a la medida, descarga nuestra guía: qué preguntar, cómo se presupuesta por hitos y cómo proteger tu inversión"</i>— combina <b>Independencia</b> (no depender de una persona), <b>Orden</b> (salir del archivo), <b>Tranquilidad</b> (proteger la inversión) y <b>Curiosidad</b> (qué preguntar).
-        </div>
-      </section>
-
-      <!-- ============ 05 SCHWARTZ ============ -->
-      <section class="block" id="schwartz">
-        <div class="eyebrow">05 · Psicología</div>
-        <h2 class="h-title">Niveles de Conciencia de Schwartz</h2>
-        <p>Eugene Schwartz explicó que ningún comprador está en el mismo punto: unos no saben que tienen un problema y otros ya están decidiendo con quién. El contenido que funciona depende de dónde está la persona. Hablarle de «software a la medida» a quien solo siente que «todo está desordenado» es tan inútil como explicarle qué es un ERP a quien ya está comparando propuestas.</p>
-
-        <div class="awareness-step">
-          <div class="num">1</div>
-          <div>
-            <div class="state">Inconsciente</div>
-            <h4>Cree que el desorden es normal</h4>
-            <p style="margin-bottom:0;">«Así trabajamos todos»: la nómina a mano, el inventario en un cuaderno y los pedidos por WhatsApp le parecen parte del negocio.</p>
-            <div class="eff-content"><b>Contenido efectivo:</b> reels TOFU de escena cotidiana, sin mencionar software ni a Image Colombia. Que se reconozca en la escena.</div>
-          </div>
-        </div>
-
-        <div class="awareness-step">
-          <div class="num">2</div>
-          <div>
-            <div class="state">Consciente del problema</div>
-            <h4>Sabe que pierde tiempo, no sabe cómo resolverlo</h4>
-            <p style="margin-bottom:0;">«Ya no sé cuál de los tres archivos tiene la cifra correcta.» Siente el costo, pero no sabe si necesita un sistema, una herramienta estándar o más personal.</p>
-            <div class="eff-content"><b>Contenido efectivo:</b> nombrar el dolor con precisión y abrir la puerta: <i>"5 señales de que tu empresa ya no cabe en Excel"</i>.</div>
-          </div>
-        </div>
-
-        <div class="awareness-step">
-          <div class="num">3</div>
-          <div>
-            <div class="state">Consciente de la solución</div>
-            <h4>Sabe que necesita un sistema; teme elegir mal</h4>
-            <p style="margin-bottom:0;">Compara software estándar (Siigo, Alegra, Odoo), desarrollo a la medida o equipo interno. Su mayor barrera es el miedo.</p>
-            <div class="eff-content"><b>Contenido efectivo:</b> explicar el mecanismo (diagnóstico → hitos → integración → acompañamiento) y entregar la guía <i>"Antes de contratar software a la medida"</i>.</div>
-          </div>
-        </div>
-
-        <div class="awareness-step">
-          <div class="num">4</div>
-          <div>
-            <div class="state">Consciente del producto</div>
-            <h4>Conoce a Image Colombia y la compara</h4>
-            <p style="margin-bottom:0;">Ya descargó la guía o vio el video. Busca razones para confiar: quién es el equipo, qué han construido, qué queda en sus manos.</p>
-            <div class="eff-content"><b>Contenido efectivo:</b> trabajo real, equipo con cara, Ordex como prueba de capacidad y detrás de cámaras de un diagnóstico. Diferenciación por hechos, no adjetivos.</div>
-          </div>
-        </div>
-
-        <div class="awareness-step">
-          <div class="num">5</div>
-          <div>
-            <div class="state">Más consciente</div>
-            <h4>Está listo; necesita el último paso</h4>
-            <p style="margin-bottom:0;">Habló por WhatsApp y quiere avanzar. Necesita claridad sobre el siguiente paso, no más persuasión.</p>
-            <div class="eff-content"><b>Contenido efectivo:</b> agendar el diagnóstico, propuesta por hitos, condiciones claras. (BOFU: casos y retargeting cuando exista público.)</div>
-          </div>
-        </div>
-
-        <h3 class="h-sub">Nivel de sofisticación del mercado: 5</h3>
-        <p>La conciencia mide dónde está <i>una persona</i>; la sofisticación mide cuántas promesas ha escuchado <i>todo el mercado</i>. El software empresarial en Colombia está en el último nivel: el comprador está saturado y escéptico.</p>
-        <div class="soph">
-          <div><b>1</b>Basta con decir qué hace el producto.</div>
-          <div><b>2</b>Se agranda la promesa.</div>
-          <div><b>3</b>Se explica un mecanismo nuevo.</div>
-          <div><b>4</b>Se agranda el mecanismo.</div>
-          <div class="on"><b>5 · aquí</b>Gana la identificación y la experiencia distinta.</div>
-        </div>
-        <div class="callout-box">
-          <span class="label">Qué implica el nivel 5 para Image Colombia</span>
-          No ganar con promesas más grandes sino con: <b>identificación</b> (describir el problema mejor que el cliente), <b>evidencia</b> (trabajo real) y <b>experiencia distinta desde el primer contacto</b> (dar valor antes de pedir la venta: la guía, el diagnóstico, una respuesta honesta).
-        </div>
-
-        <h3 class="h-sub">Tabla de integración: niveles × funnel × deseos dominantes</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Nivel de conciencia</th><th>Etapa de funnel</th><th>Deseos Reiss dominantes</th><th>Formato</th></tr></thead>
-            <tbody>
-              <tr><td>1. Inconsciente</td><td>TOFU</td><td>Orden, Actividad</td><td>Reel de escena</td></tr>
-              <tr><td>2. Consciente del problema</td><td>TOFU → MOFU</td><td>Independencia, Poder, Ahorro</td><td>Reel / carrusel de señales</td></tr>
-              <tr><td>3. Consciente de la solución</td><td>MOFU</td><td>Tranquilidad, Curiosidad, Honor</td><td>Carrusel + lead magnet</td></tr>
-              <tr><td>4. Consciente del producto</td><td>MOFU → BOFU</td><td>Aceptación, Estatus, Contacto social</td><td>Trabajo real, LinkedIn, equipo</td></tr>
-              <tr><td>5. Más consciente</td><td>BOFU</td><td>Tranquilidad, Poder</td><td>WhatsApp, diagnóstico, propuesta</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ============ 06 SESGOS ============ -->
-      <section class="block" id="sesgos">
-        <div class="eyebrow">06 · Psicología</div>
-        <h2 class="h-title">Sesgos de Persuasión</h2>
-        <p>Los sesgos cognitivos son atajos mentales que todos usamos para decidir. Aquí se usan para <b style="color:#fff;">facilitar</b> una decisión que el comprador ya necesita tomar, nunca para presionarlo, inventar urgencia o prometer lo que no se puede probar. Toca cada tarjeta para ver su aplicación a Image Colombia.</p>
-
-        <div class="callout-box warn">
-          <span class="label">Principio ético</span>
-          Image Colombia vende tranquilidad frente al miedo a contratar software; no explota ese miedo. No se usan contadores falsos, «últimos cupos» ni cifras de ahorro o ventas que no se hayan medido. Los casos y testimonios solo se publican con autorización y soporte; mientras crecen los casos de software, la evidencia es el proceso, el equipo y Ordex.
-        </div>
-
-        <div class="flip-grid" id="sesgosGrid">
-          <!-- generated by JS -->
-        </div>
-      </section>
-
-      <!-- ============ 07 INTEGRANDO TODO ============ -->
-      <section class="block" id="integracion">
-        <div class="eyebrow">07 · Aplicación</div>
-        <h2 class="h-title">Integrando Todo</h2>
-        <p>Seis pasos para pasar de «hay que publicar algo» a una pieza con intención estratégica, cada vez que se trabaje una idea de las matrices de contenido.</p>
-
-        <div class="flow-steps">
-          <div class="flow-step"><div class="fs-num">1</div><p><b style="color:#fff;">Elige la línea.</b> Software a la medida, web + IA o marketing + multimedia. Una sola por pieza, con su propia landing.</p></div>
-          <div class="flow-step"><div class="fs-num">2</div><p><b style="color:#fff;">Identifica el perfil.</b> ¿Gerente general, operaciones, comercial o tecnología? ¿Quién sufre más este dolor?</p></div>
-          <div class="flow-step"><div class="fs-num">3</div><p><b style="color:#fff;">Ubica el nivel de conciencia y la etapa.</b> ¿Solo vive el síntoma (TOFU) o ya busca solución y teme elegir mal (MOFU)?</p></div>
-          <div class="flow-step"><div class="fs-num">4</div><p><b style="color:#fff;">Elige 1–2 deseos Reiss.</b> Orden, Independencia y Tranquilidad son los ejes; los demás se activan según el perfil.</p></div>
-          <div class="flow-step"><div class="fs-num">5</div><p><b style="color:#fff;">Elige 1–2 sesgos éticos.</b> Reciprocidad y franqueza funcionan especialmente bien en nivel 5.</p></div>
-          <div class="flow-step"><div class="fs-num">6</div><p><b style="color:#fff;">Escribe con la estructura de alta conversión.</b> Gancho de identificación → mecanismo → prueba real → una sola acción. Tono claro, estratégico, cercano, resolutivo y honesto.</p></div>
-        </div>
-
-        <h3 class="h-sub">Ejemplo práctico integrado — Perfil 02: la Directora de Operaciones</h3>
-        <div class="info-card">
-          <p><b style="color:#fff;">Línea:</b> software a la medida (landing de software, nunca el home).</p>
-          <p><b style="color:#fff;">Nivel de conciencia:</b> 2 → 3 — sabe que pierde tiempo consolidando información y empieza a buscar cómo resolverlo.</p>
-          <p><b style="color:#fff;">Etapa de funnel:</b> MOFU — carrusel con CTA a la guía.</p>
-          <p><b style="color:#fff;">Deseos activados:</b> Orden (una sola versión de la información), Independencia (no depender de una persona), Tranquilidad (proteger la inversión).</p>
-          <p><b style="color:#fff;">Sesgos usados:</b> Reciprocidad (guía gratuita útil incluso si no nos contrata) + Franqueza (decir cuándo NO se necesita software a la medida).</p>
-          <p style="margin-bottom:0.5rem;"><b style="color:#fff;">Copy paso a paso:</b></p>
-          <div class="eff-content" style="margin-bottom:0.5rem;"><b>Gancho:</b> "¿Tu equipo pierde la mañana del lunes consolidando reportes de cuatro archivos distintos?"</div>
-          <div class="eff-content" style="margin-bottom:0.5rem;"><b>Mecanismo:</b> "Hacemos un diagnóstico de tu proceso, construimos el sistema por hitos y lo conectamos con lo que ya usas. Y si una herramienta estándar te resuelve, te lo decimos."</div>
-          <div class="eff-content" style="margin-bottom:0.5rem;"><b>Prueba real:</b> pantalla del sistema funcionando con datos de prueba, o el equipo frente al tablero en un diagnóstico. Nada de stock ni robots.</div>
-          <div class="eff-content" style="margin-bottom:0;"><b>CTA:</b> "Antes de contratar a cualquier proveedor —incluidos nosotros—, descarga la guía gratuita «Antes de contratar software a la medida». Al dejar tus datos se habilita el WhatsApp directo con el equipo."</div>
-        </div>
-      </section>
-
-      <!-- ============ 08 HERRAMIENTAS ============ -->
-      <section class="block" id="herramientas">
-        <div class="eyebrow">08 · Aplicación</div>
-        <h2 class="h-title">Herramientas Prácticas</h2>
-
-        <h3 class="h-sub">Checklist antes de publicar</h3>
-        <ul class="checklist">
-          <li>¿La pieza habla de una sola línea de servicio y lleva a su landing (no al home ni a Ordex)?</li>
-          <li>¿Qué perfil decisor necesita verla y en qué etapa está: TOFU o MOFU?</li>
-          <li>¿El gancho describe una escena concreta del problema, o es una promesa genérica de nivel 5 («soluciones integrales», «control total», «tenemos IA»)?</li>
-          <li>¿Muestra trabajo real o equipo real? Si usa pantallas, ¿son datos de prueba y no datos de clientes?</li>
-          <li>¿Toda cifra, función o resultado tiene soporte verificable (incluidos «15 años» y «+300 empresas»)?</li>
-          <li>¿Evita «crea tu app», jerga sin traducir, «ilimitado» y comparaciones negativas con otras marcas?</li>
-          <li>¿Usa tú en contenido y usted en el primer contacto uno a uno?</li>
-          <li>¿Termina en una sola acción: seguir, descargar la guía o escribir por WhatsApp?</li>
-          <li>¿Es una pieza nueva? (No se reutilizan publicaciones antiguas.)</li>
-        </ul>
-
-        <h3 class="h-sub">Pilares por matriz de contenido</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Matriz</th><th>Pilares</th><th>Gancho de ejemplo</th><th>Lead magnet</th></tr></thead>
-            <tbody>
-              <tr><td><b>Software a la medida</b></td><td>Dolor operativo · Proceso: diagnóstico e hitos · Trabajo real · Objeciones y miedo · Ordex como prueba</td><td><i>"Si para saber cuánto vendiste ayer tienes que llamar a tres personas, esto es para ti."</i></td><td>«Antes de contratar software a la medida: guía para proteger tu inversión»</td></tr>
-              <tr><td><b>Web + automatización con IA</b></td><td>Web como sistema de captación · Automatizaciones útiles · Antes y después · Medición</td><td><i>"Tu web no tiene un problema de diseño. Tiene un problema de seguimiento."</i></td><td>«Checklist: lo que tu web necesita para capturar y hacer seguimiento a cada contacto»</td></tr>
-              <tr><td><b>Marketing + multimedia</b></td><td>Contenido que explica · Detrás de cámaras · Estrategia antes que volumen</td><td><i>"Tu empresa hace cosas que nadie está mostrando."</i></td><td>«Guía de contenido B2B: qué grabar, cómo y para qué»</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="h-sub">Plantilla de análisis de audiencia</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Línea</th><th>Perfil</th><th>Etapa</th><th>Nivel de conciencia</th><th>Dolor principal</th><th>Deseo dominante</th><th>Sesgo</th><th>Canal</th></tr></thead>
-            <tbody>
-              <tr><td>[Software / Web+IA / Mkt]</td><td>[01–04]</td><td>[TOFU / MOFU]</td><td>[1–5]</td><td>[Escena concreta]</td><td>[Reiss]</td><td>[Sección 06]</td><td>[IG / FB / LinkedIn / WhatsApp]</td></tr>
-              <tr><td>[Software / Web+IA / Mkt]</td><td>[01–04]</td><td>[TOFU / MOFU]</td><td>[1–5]</td><td>[Escena concreta]</td><td>[Reiss]</td><td>[Sección 06]</td><td>[IG / FB / LinkedIn / WhatsApp]</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="h-sub">Estructura de contenido semanal (propuesta)</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Formato</th><th>Frecuencia</th><th>Contenido</th></tr></thead>
-            <tbody>
-              <tr><td><b>Reel TOFU</b></td><td>2x semana</td><td>Escena de dolor (pedidos, nómina, facturación, inventario a mano). Sin vender.</td></tr>
-              <tr><td><b>Carrusel MOFU</b></td><td>1–2x semana</td><td>Mecanismo, señales, objeciones (costo, tiempos, riesgo, qué queda en tus manos) con CTA a la guía.</td></tr>
-              <tr><td><b>Stories</b></td><td>Varias por semana</td><td>Detrás de cámaras de diagnósticos y desarrollo, encuestas de dolor, enlace a la guía.</td></tr>
-              <tr><td><b>LinkedIn</b></td><td>1–2x semana</td><td>Autoridad B2B: aprendizajes de diagnósticos, decisiones de arquitectura explicadas para gerentes, historia de Ordex.</td></tr>
-              <tr><td><b>Video de landing</b></td><td>Uno por línea</td><td>1 a 1,5 min: problema (10 s) → cómo trabajamos (30 s) → trabajo real (30–40 s) → invitación a la guía (10 s).</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ============ 09 ERRORES ============ -->
-      <section class="block" id="errores">
-        <div class="eyebrow">09 · Aplicación</div>
-        <h2 class="h-title">Errores Comunes</h2>
-        <p>Estos errores no son genéricos: salen de la auditoría de las landings, la reunión del 9 de noviembre, el expediente estratégico y el estudio de mercado de Image Colombia.</p>
-
-        <div class="errores-grid">
-          <div class="error-card"><div class="err-num">Error 01</div><h4>Pautar con fugas de tráfico</h4><p style="font-size:0.85rem; margin-bottom:0;">Botones que no funcionan o no se pueden rastrear («ver precios», WhatsApp, servicios, pie de página).</p><div class="fix"><b>Solución:</b> no activar los COP 800.000 de pauta hasta corregir botones y el seguimiento en GTM/GA4.</div></div>
-          <div class="error-card"><div class="err-num">Error 02</div><h4>Llevar el anuncio al home</h4><p style="font-size:0.85rem; margin-bottom:0;">El visitante se diluye entre menú, pie de página y botón de contacto genérico.</p><div class="fix"><b>Solución:</b> una pieza, una línea, una landing, con dos capturas: formulario + WhatsApp.</div></div>
-          <div class="error-card"><div class="err-num">Error 03</div><h4>Presentarse como «agencia digital»</h4><p style="font-size:0.85rem; margin-bottom:0;">El perfil dice «marketing y web» y la bio enumera siete servicios: contradice el posicionamiento tecnológico.</p><div class="fix"><b>Solución:</b> «IMAGECOLOMBIA | Software a la medida», categoría de software o servicios de TI y jerarquía de tres líneas.</div></div>
-          <div class="error-card"><div class="err-num">Error 04</div><h4>Promesas de nivel 5</h4><p style="font-size:0.85rem; margin-bottom:0;">«Soluciones integrales», «líderes en tecnología», «control total», «tenemos IA».</p><div class="fix"><b>Solución:</b> escena concreta del problema + mecanismo + prueba real.</div></div>
-          <div class="error-card"><div class="err-num">Error 05</div><h4>Contenido general y de stock</h4><p style="font-size:0.85rem; margin-bottom:0;">La landing de software es demasiado general; robots, cerebros y hologramas no generan confianza.</p><div class="fix"><b>Solución:</b> pantallas funcionando, equipo real y video de 1 a 1,5 min.</div></div>
-          <div class="error-card"><div class="err-num">Error 06</div><h4>«Crea tu app»</h4><p style="font-size:0.85rem; margin-bottom:0;">La campaña de Google de apps atrae sobre todo a jóvenes sin capacidad de compra.</p><div class="fix"><b>Solución:</b> hablar de aplicaciones empresariales: «Lleva tu operación al celular de tu equipo de campo».</div></div>
-          <div class="error-card"><div class="err-num">Error 07</div><h4>Pedir la venta en el primer contacto</h4><p style="font-size:0.85rem; margin-bottom:0;">Responder con un precio o una propuesta antes de entender la operación.</p><div class="fix"><b>Solución:</b> primero valor (la guía) y luego una pregunta de diagnóstico, en usted.</div></div>
-          <div class="error-card"><div class="err-num">Error 08</div><h4>Mezclar Ordex con Image Colombia</h4><p style="font-size:0.85rem; margin-bottom:0;">Llevar pauta de una marca a la otra, o publicar «solicita una demo» sin captura ni soporte verificados.</p><div class="fix"><b>Solución:</b> embudos separados; dentro de Image Colombia, Ordex solo como prueba de capacidad.</div></div>
-          <div class="error-card"><div class="err-num">Error 09</div><h4>Cifras sin soporte</h4><p style="font-size:0.85rem; margin-bottom:0;">Usar «15 años», «+300 empresas» o ahorros y porcentajes que no se han medido.</p><div class="fix"><b>Solución:</b> validar cada cifra antes de usarla en pauta o piezas institucionales.</div></div>
-          <div class="error-card"><div class="err-num">Error 10</div><h4>Reutilizar publicaciones viejas</h4><p style="font-size:0.85rem; margin-bottom:0;">Las piezas existentes no tienen la calidad ni el mensaje del nuevo posicionamiento.</p><div class="fix"><b>Solución:</b> piezas nuevas, a partir de la matriz de contenido aprobada.</div></div>
-        </div>
-      </section>
-
-      <!-- ============ CONCLUSIÓN ============ -->
-      <section class="block" id="conclusion">
-        <div class="eyebrow">Conclusión</div>
-        <h2 class="h-title">Principio rector</h2>
-        <div class="callout-box gold">
-          <span class="label">Image Colombia es el Creador que piensa antes de construir</span>
-          En un mercado que ya no cree en promesas, Image Colombia no compite por gritar más fuerte: compite por entender mejor. Entiende la operación del cliente con la claridad del <b>Sabio</b> y la transforma con la precisión del <b>Creador</b>. Cada pieza —un reel, la landing, la guía o el primer WhatsApp— debe dejar la misma huella: <b>alivio</b> («por fin alguien entendió mi operación»), <b>confianza</b> («vi lo que han construido»), <b>claridad</b>, <b>control</b> y <b>tranquilidad</b>.
-        </div>
-
-        <h3 class="h-sub">Referencias documentales usadas</h3>
-        <div class="table-container">
-          <table>
-            <thead><tr><th>Documento</th><th>Contenido usado</th></tr></thead>
-            <tbody>
-              <tr><td>Expediente Estratégico de Marca IMAGECOLOMBIA (nov. 2026)</td><td>Posicionamiento, ADN, arquetipos, perfiles decisores, sectores prioritarios, mensajes comerciales, competencia y KPI.</td></tr>
-              <tr><td>Estudio integral de mercado de IMAGECOLOMBIA (corte 7-nov-2026)</td><td>Tres unidades de negocio, compradores y disparadores, competencia y precios, reglas de veracidad, KPI y plan de validación.</td></tr>
-              <tr><td>Personalidad de Marca IMAGECOLOMBIA V1 (9-nov-2026)</td><td>Jerarquía de líneas, nivel 5 de sofisticación, valores, tono, tú/usted, emociones, paleta (#0B1F3A, #1F5EFF, #00A7C4), embudo, lead magnets y ganchos.</td></tr>
-              <tr><td>Acta de reunión: optimización de landings y estrategia de pauta (9-nov-2026)</td><td>Auditoría de landings, flujo de conversión de 5 pasos, jerarquía de servicios, Ordex por separado, matrices TOFU/MOFU y LinkedIn.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout-box">
-          <span class="label">Pendiente para la siguiente versión</span>
-          La carpeta <i>BUYER PERSON</i> aún está vacía: cuando existan los buyer personas, actualizar la sección 03. También falta confirmar el tercer perfil del estudio de mercado mencionado en la reunión y validar con datos de formularios y entrevistas los perfiles decisores.
-        </div>
-
-        <div class="foot-note">IMAGECOLOMBIA · Tablero de Psicología del Consumidor · Bogotá, Colombia · Noviembre 2026 · Documento vivo: revisar tras el primer ciclo de pauta y cada semestre.</div>
-      </section>
-
+    <div class="b2b-note"><strong>Enfoque 100% B2B:</strong> estos perfiles representan a quienes deciden o influyen en la contratación de tecnología dentro de una empresa: gerencia, operaciones, comercial, tecnología y marketing. No incluyen a personas con una idea de app sin presupuesto ni a emprendimientos que solo buscan logo.</div>
+    <div class="lineas-row">
+      <span class="linea-pill">⚙️ Software a la medida · prioritaria</span>
+      <span class="linea-pill">🌐 Web + automatización con IA</span>
+      <span class="linea-pill">🎬 Marketing + contenido multimedia</span>
     </div>
-  </main>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><span class="stat-num">10</span><span class="stat-label">Buyer personas B2B</span></div>
+    <div class="stat"><span class="stat-num">50</span><span class="stat-label">Dolores mapeados</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Líneas de servicio</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Perfiles prioritarios</span></div>
+  </div>
 </div>
 
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="todos">Todos</button>
+  <button class="filter-btn" data-filter="software">Software a la medida</button>
+  <button class="filter-btn" data-filter="webia">Web + IA</button>
+  <button class="filter-btn" data-filter="mkt">Marketing + multimedia</button>
+</div>
+<div class="hint"><span class="ico">↻</span> Toca cada tarjeta para girarla y ver sus 5 dolores</div>
+
+<main>
+  <div class="grid" id="grid">
+
+    <!-- 01 -->
+    <article class="card-flip priority" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <span class="priority-flag">Prioritario</span>
+<div class="card-top">
+            <span class="card-num">01</span>
+            <div class="card-title">El Gerente que Depende de una Sola Persona</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Gerente general o dueño · 38–58 años · Pyme de comercio y distribución en crecimiento · 20–80 empleados</div>
+          <p class="card-desc">Creció vendiendo, no organizando. Pedidos, inventario y cartera viven entre Excel, WhatsApp y la cabeza de una o dos personas clave. Busca orden e información confiable para decidir sin tener que llamar a tres personas.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">01 · El Gerente que Depende de una Sola Persona</div>
+          <ul class="dolores-list">
+            <li>Para saber cuánto vendió ayer o qué hay en bodega tiene que preguntarle a la persona que «entiende el archivo», y si ella falta o renuncia, la operación queda a ciegas.</li>
+            <li>Los pedidos que entran por WhatsApp se pierden o se despachan dos veces porque nadie los registra en el mismo lugar.</li>
+            <li>Probó un software estándar que lo obligaba a cambiar la forma de trabajar; el equipo lo abandonó y volvió al Excel.</li>
+            <li>Teme pagar un desarrollo que nunca se entrega, cuesta más de lo pactado o lo deja atado al proveedor.</li>
+            <li>No sabe si necesita un software a la medida, una herramienta estándar o simplemente organizar mejor, y nadie le da una respuesta honesta sin intentar venderle.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="card-flip priority" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <span class="priority-flag">Prioritario</span>
+<div class="card-top">
+            <span class="card-num">02</span>
+            <div class="card-title">La Directora de Operaciones de la Constructora</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Directora de operaciones o de proyectos · 32–50 años · Constructora o firma de infraestructura mediana</div>
+          <p class="card-desc">Coordina varias obras a la vez: órdenes de trabajo, compras, inventario de materiales, equipos y personal. Cada obra reporta a su manera y ella consolida todo a mano. Busca una sola vista de la operación.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">02 · La Directora de Operaciones de la Constructora</div>
+          <ul class="dolores-list">
+            <li>Pierde la mañana de cada lunes consolidando reportes de obra que llegan en formatos distintos (Excel, fotos, mensajes de voz).</li>
+            <li>Las compras se duplican o llegan tarde porque obra, almacén y compras no comparten la misma información de inventario.</li>
+            <li>Gerencia le pide el avance y el costo real de cada proyecto y nunca tiene la cifra actualizada a tiempo.</li>
+            <li>El software sectorial que conoce es costoso, rígido o tiene módulos que no usa, y no se adapta a cómo trabaja su equipo.</li>
+            <li>Si recomienda un sistema y el equipo de campo no lo adopta, el fracaso queda a su nombre ante la gerencia.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="card-flip" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">03</span>
+            <div class="card-title">El Gerente de Servicios Técnicos con Equipo de Campo</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Gerente o jefe de mantenimiento · 35–55 años · Empresa de energía, industria o servicios técnicos · técnicos en campo</div>
+          <p class="card-desc">Tiene técnicos visitando clientes, instalando o haciendo mantenimiento a equipos y activos. Las órdenes de servicio se diligencian en papel o por chat. Busca llevar la operación al celular del equipo de campo.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">03 · El Gerente de Servicios Técnicos con Equipo de Campo</div>
+          <ul class="dolores-list">
+            <li>Las órdenes de servicio se llenan en papel, se pierden o llegan a la oficina días después, y facturar se retrasa.</li>
+            <li>No tiene historial confiable de cada activo o equipo atendido: qué se hizo, cuándo, quién y con qué repuestos.</li>
+            <li>No sabe en tiempo real dónde está cada técnico ni qué servicios quedaron pendientes.</li>
+            <li>Cuando busca «desarrollo de apps» encuentra agencias que hablan de apps de consumo, no de herramientas para equipos de trabajo.</li>
+            <li>Le preocupa que una app no funcione sin señal en campo o que sus técnicos no la sepan usar.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="card-flip" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">04</span>
+            <div class="card-title">El Director de Tecnología con Sistemas que No se Hablan</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Director o coordinador de TI · 33–50 años · Empresa mediana con ERP/CRM ya instalados (incluso SAP o Salesforce)</div>
+          <p class="card-desc">Ya tiene sistemas, pero no conversan entre sí: la información se digita dos veces y hay brechas que cubren hojas de cálculo. No quiere reemplazar todo; quiere conectarlo. Evalúa al proveedor con criterio técnico.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">04 · El Director de Tecnología con Sistemas que No se Hablan</div>
+          <ul class="dolores-list">
+            <li>El equipo digita la misma información en dos o tres sistemas distintos, con errores y reprocesos que terminan escalando a su área.</li>
+            <li>Los proveedores que contacta proponen reemplazar toda la infraestructura en lugar de integrar lo que ya funciona.</li>
+            <li>Desconfía de proveedores que no muestran documentación, arquitectura, pruebas ni plan de continuidad.</li>
+            <li>Le preocupa la seguridad de los datos, los accesos y quién queda como dueño del código y de las integraciones.</li>
+            <li>Su equipo interno no tiene capacidad para desarrollar las integraciones y necesita un aliado que entregue por hitos y documente.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="card-flip" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">05</span>
+            <div class="card-title">La Coordinadora de Proyectos Ambientales</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Coordinadora de proyectos o de calidad · 30–48 años · Consultora o empresa del sector medio ambiente</div>
+          <p class="card-desc">Gestiona proyectos con actividades, indicadores y reportes que debe entregar a clientes o autoridades. La trazabilidad vive en carpetas y hojas de cálculo. Busca reportes confiables sin rearmarlos cada mes.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">05 · La Coordinadora de Proyectos Ambientales</div>
+          <ul class="dolores-list">
+            <li>Arma cada informe de indicadores a mano, cruzando archivos de distintos profesionales, y le toma días.</li>
+            <li>No tiene trazabilidad clara de qué actividad se hizo, cuándo, por quién y con qué evidencia.</li>
+            <li>Teme entregar un reporte con un dato equivocado a un cliente o a una autoridad.</li>
+            <li>Las herramientas genéricas de gestión de proyectos no manejan sus indicadores ni sus formatos de reporte.</li>
+            <li>Tiene presupuesto limitado y necesita digitalizar por etapas, empezando por lo más crítico.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="card-flip priority" data-segment="software">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <span class="priority-flag">Prioritario</span>
+<div class="card-top">
+            <span class="card-num">06</span>
+            <div class="card-title">El Empresario que Ya se Quemó con un Proveedor</div>
+          </div>
+          <span class="segment-badge">Software a la medida</span>
+          <div class="card-meta">Gerente o socio · 40–60 años · Empresa mediana de cualquier sector prioritario · tuvo un proyecto fallido</div>
+          <p class="card-desc">Ya pagó un desarrollo que quedó a medias, se demoró el doble o el proveedor desapareció. Sigue necesitando el sistema, pero ahora desconfía de todos. Es el comprador que más valora la transparencia y el proceso visible.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">06 · El Empresario que Ya se Quemó con un Proveedor</div>
+          <ul class="dolores-list">
+            <li>Pagó un anticipo grande por un software que nunca se terminó, o que se entregó sin funcionar como se prometió.</li>
+            <li>El proveedor anterior no le entregó el código, los accesos ni la documentación, y ahora depende de él o tiene que empezar de cero.</li>
+            <li>Ya no cree en promesas de «soluciones integrales» ni en propuestas sin hitos, entregables y exclusiones claras.</li>
+            <li>Teme volver a explicarle su operación a otro proveedor y repetir la historia.</li>
+            <li>Necesita justificar ante sus socios por qué esta vez sí va a funcionar.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="card-flip" data-segment="webia">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">07</span>
+            <div class="card-title">La Directora Comercial que Pierde Contactos Fuera de Horario</div>
+          </div>
+          <span class="segment-badge">Web + automatización con IA</span>
+          <div class="card-meta">Directora comercial o de marketing · 30–45 años · Empresa de servicios B2B con web y pauta activa</div>
+          <p class="card-desc">Invierte en pauta y la web recibe visitas, pero los formularios se revisan tarde, las preguntas nocturnas quedan sin respuesta y el seguimiento depende de la memoria del vendedor. Busca que ningún contacto se pierda.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">07 · La Directora Comercial que Pierde Contactos Fuera de Horario</div>
+          <ul class="dolores-list">
+            <li>Alguien llena el formulario un domingo o a las 11 p. m., nadie responde, y el lunes ya cotizó con otro.</li>
+            <li>No sabe qué campaña o qué página trae los contactos que de verdad compran.</li>
+            <li>Los contactos quedan repartidos entre correo, WhatsApp y celulares personales de los vendedores.</li>
+            <li>El equipo comercial gasta horas respondiendo las mismas preguntas básicas una y otra vez.</li>
+            <li>Le han vendido chatbots que responden mal y espantan al cliente, y teme que la IA dañe la imagen de la marca.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 08 -->
+    <article class="card-flip" data-segment="webia">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">08</span>
+            <div class="card-title">El Dueño de Empresa con una Web Vitrina</div>
+          </div>
+          <span class="segment-badge">Web + automatización con IA</span>
+          <div class="card-meta">Gerente o dueño · 35–55 años · Empresa establecida con web antigua o hecha en plantilla</div>
+          <p class="card-desc">Tiene web hace años, pero solo sirve de tarjeta de presentación: no capta, no mide y nadie la actualiza. Piensa que el problema es de diseño. Busca que la web por fin traiga clientes.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">08 · El Dueño de Empresa con una Web Vitrina</div>
+          <ul class="dolores-list">
+            <li>La web casi no genera consultas, y las pocas que llegan no son del cliente que quiere.</li>
+            <li>No sabe cuántas personas la visitan ni qué hacen dentro; los botones a veces ni funcionan.</li>
+            <li>Cree que necesita «una web más bonita» y compara precios de páginas sin saber qué incluye cada una.</li>
+            <li>No tiene quién la actualice ni la conecte con WhatsApp, el correo o su sistema de ventas.</li>
+            <li>Le cuesta distinguir entre proveedores baratos de plantilla y uno que construya un sistema de captación.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 09 -->
+    <article class="card-flip" data-segment="mkt">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">09</span>
+            <div class="card-title">La Gerente de Marketing de Empresa Industrial sin Contenido</div>
+          </div>
+          <span class="segment-badge">Marketing + multimedia</span>
+          <div class="card-meta">Gerente o coordinadora de marketing · 28–45 años · Empresa industrial o de servicios B2B · equipo de marketing pequeño</div>
+          <p class="card-desc">Su empresa hace procesos, obras y entregas impresionantes que nadie está mostrando. Publica poco, con piezas genéricas, y no tiene capacidad de producir video. Busca estrategia y producción en un mismo equipo.</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">09 · La Gerente de Marketing de Empresa Industrial sin Contenido</div>
+          <ul class="dolores-list">
+            <li>La empresa hace cosas que nadie está mostrando, y las redes se llenan de piezas genéricas sin relación con lo que se vende.</li>
+            <li>No tiene equipo para grabar, editar ni hacer motion graphics, y coordinar a varios proveedores le consume el tiempo.</li>
+            <li>Le han vendido paquetes de «X publicaciones al mes» que no se conectan con ninguna meta comercial.</li>
+            <li>Gerencia le pregunta qué retorno deja el marketing y no tiene cómo demostrarlo.</li>
+            <li>Necesita contenido B2B serio para LinkedIn y presentaciones a clientes, no solo para Instagram.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="card-flip" data-segment="mkt">
+      <div class="flip-inner">
+        <div class="face face-front">
+          <div class="card-top">
+            <span class="card-num">10</span>
+            <div class="card-title">El Gerente que Pauta sin Saber qué Funciona</div>
+          </div>
+          <span class="segment-badge">Marketing + multimedia</span>
+          <div class="card-meta">Gerente o dueño · 35–55 años · Pyme que ya invierte en Meta o Google Ads sin estrategia clara</div>
+          <p class="card-desc">Invierte cada mes en pauta, a veces la maneja él mismo o un freelancer, y no sabe qué le devuelve. Busca un equipo que una estrategia, contenido y medición, y que le hable de clientes, no de «likes».</p>
+          <div class="card-footer">
+            <div class="dolores-count"><span class="dot-row"><span></span><span></span><span></span><span></span><span></span></span>5 dolores</div>
+            <button class="flip-btn" type="button">Ver dolores <span class="arrow">↻</span></button>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-label">Dolores, objeciones y necesidades</div>
+          <div class="back-title">10 · El Gerente que Pauta sin Saber qué Funciona</div>
+          <ul class="dolores-list">
+            <li>Gasta en pauta cada mes y no sabe cuántos clientes reales le deja.</li>
+            <li>Los anuncios llevan al home o a un WhatsApp general, y los contactos llegan sin filtro.</li>
+            <li>Recibe reportes de alcance y seguidores que no entiende ni le sirven para decidir.</li>
+            <li>Ha cambiado varias veces de agencia o freelancer sin ver diferencia en ventas.</li>
+            <li>Teme invertir más en contenido y pauta sin una medición que le diga qué está funcionando.</li>
+          </ul>
+          <button class="flip-btn back-btn" type="button">← Volver</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="observaciones">
+    <h2>Observaciones estratégicas</h2>
+    <p class="sub">Los 10 perfiles siguen la jerarquía acordada el 9 de noviembre de 2026: seis para software a la medida (la línea prioritaria), dos para web + automatización con IA y dos para marketing + contenido multimedia. Salen del expediente estratégico, el estudio de mercado, la guía de personalidad de marca y el acta de reunión. <strong>Son hipótesis de trabajo:</strong> edades, tamaños y dolores deben confirmarse con entrevistas (el estudio propone 8–12 por línea) y con los datos que lleguen por los formularios de las landings.</p>
+
+    <div class="priority-grid">
+      <div class="priority-card">
+        <div class="p-rank">Prioridad 01</div>
+        <h3>01 · El Gerente que Depende de una Sola Persona</h3>
+        <p>El dolor más común y fácil de reconocer en una escena: el Excel que solo una persona entiende y los pedidos perdidos entre WhatsApp y el cuaderno. Es el público ideal de los reels TOFU y de la guía «Antes de contratar software a la medida».</p>
+      </div>
+      <div class="priority-card">
+        <div class="p-rank">Prioridad 02</div>
+        <h3>02 · La Directora de Operaciones de la Constructora</h3>
+        <p>Construcción e infraestructura es el primer sector prioritario del expediente. Tiene procesos concretos (obras, órdenes, compras, inventario) donde el software a la medida resuelve lo que el software estándar no cubre.</p>
+      </div>
+      <div class="priority-card">
+        <div class="p-rank">Prioridad 03</div>
+        <h3>06 · El Empresario que Ya se Quemó con un Proveedor</h3>
+        <p>Representa el miedo central del mercado (estafa, proyectos sin entregar). Si la comunicación convence a este perfil con hitos, entregables y franqueza, convence a todos los demás.</p>
+      </div>
+    </div>
+
+    <p class="obs-text">
+      <strong>Posicionamiento recomendado:</strong> Image Colombia debe comunicarse como la empresa de tecnología que primero entiende la operación y después construye, no como una agencia digital que también programa. En un mercado de nivel 5, gana quien describe el problema mejor que el propio cliente y muestra trabajo real.<br><br>
+      <strong>Mensaje eje por línea:</strong> para software a la medida (01–06), «Software construido alrededor de tu operación, no al revés», apoyado en diagnóstico, hitos y Ordex como prueba de capacidad. Para web + IA (07–08), «Una web que atiende, captura y hace seguimiento». Para marketing + multimedia (09–10), «Estrategia y producción en un mismo equipo, enfocadas en lo que tu empresa vende».<br><br>
+      <strong>Captación:</strong> cada perfil entra por la landing de su línea, nunca por el home: anuncio en Meta → video de trabajo real → lead magnet en PDF → formulario → WhatsApp habilitado, con primer contacto en usted y una pregunta de diagnóstico. Para 04 (tecnología) y 02 (operaciones), LinkedIn es el canal de autoridad.<br><br>
+      <strong>Quién NO es buyer persona:</strong> personas jóvenes con una idea de app y sin presupuesto (lo que hoy atrae la campaña de Google de apps), emprendimientos que solo buscan diseño de marca (fuera de la priorización) y quien busca la web más barata sin interés en captar. El lenguaje de procesos, equipos y reprocesos filtra a estos perfiles.<br><br>
+      <strong>Ordex:</strong> sus compradores no están aquí. Como marca de producto con embudo propio, necesita su propio documento de buyer personas cuando su producto, captura de demo y soporte estén verificados.
+    </p>
+  </section>
+</main>
+
+<footer>IMAGECOLOMBIA · Buyer Personas B2B · Bogotá, Colombia · Noviembre 2026 · Elaborado a partir del expediente estratégico, el estudio de mercado, la guía de personalidad de marca y el acta del 9 de noviembre.</footer>
+
 <script>
-// ============ SESGOS DATA ============
-var sesgos = [{"ico": "🎁", "t": "Reciprocidad", "back": "Dar valor real primero, sin condición, genera disposición a corresponder. Es la palanca central del flujo lead magnet → WhatsApp.", "ejemplos": [{"fmt": "Anuncio Meta", "cp": "\"Antes de contratar software a la medida, descarga nuestra guía: qué preguntar, cómo se presupuesta por hitos y cómo proteger tu inversión.\""}, {"fmt": "Carrusel MOFU", "cp": "\"Antes de contratar a cualquier proveedor —incluidos nosotros—, descarga la guía gratuita. Enlace en la bio.\""}, {"fmt": "Reel web + IA", "cp": "\"Descarga el checklist y revisa qué le falta a tu web para capturar y hacer seguimiento a cada contacto.\""}]}, {"ico": "🤝", "t": "Franqueza (efecto de honestidad)", "back": "Admitir un límite o recomendar algo que no te beneficia aumenta la credibilidad de todo lo demás. En nivel 5 es el mayor diferencial.", "ejemplos": [{"fmt": "WhatsApp primer contacto", "cp": "\"Con eso le decimos con franqueza si tiene sentido un desarrollo a la medida o si una solución estándar le resuelve. Sin compromiso.\""}, {"fmt": "Carrusel", "cp": "\"3 casos en los que NO necesitas software a la medida (y qué usar en su lugar).\""}, {"fmt": "LinkedIn", "cp": "\"La mitad de un diagnóstico es descubrir qué no hay que construir.\""}]}, {"ico": "🎓", "t": "Autoridad", "back": "Se confía en quien demuestra dominio verificable, no en quien lo afirma. Ordex es la prueba de que Image Colombia construye y sostiene software propio.", "ejemplos": [{"fmt": "Post IG / LinkedIn", "cp": "\"Antes de construir software para otras empresas, construimos el nuestro. Diseñar un ERP + CRM propio nos obligó a resolver datos, usuarios, permisos, soporte y continuidad.\" (ajustar a la historia real de Ordex)"}, {"fmt": "Story detrás de cámaras", "cp": "\"Así se ve un diagnóstico por dentro: tablero, procesos y muchas preguntas antes de escribir una línea de código.\""}, {"fmt": "LinkedIn", "cp": "\"Lo que más escuchamos en un diagnóstico no es «necesito un software». Es «ya no sé cuál de los tres archivos tiene la cifra correcta».\""}]}, {"ico": "👥", "t": "Prueba social", "back": "Lo que otros ya vivieron pesa más que lo que la marca dice de sí misma. Hoy hay más casos de web que de software: se muestra el trabajo real disponible y se documentan casos con autorización.", "ejemplos": [{"fmt": "Reel trabajo real", "cp": "Pantalla del sistema funcionando (datos de prueba) + \"Así quedó el módulo de pedidos de [cliente autorizado / sector]\"."}, {"fmt": "Carrusel caso web", "cp": "\"Antes: formulario que nadie revisaba. Después: cada contacto recibe respuesta y queda en seguimiento.\" (solo con caso real)"}, {"fmt": "BOFU (fase 2)", "cp": "Testimonio en video de un cliente autorizado contando el proceso por hitos, no solo el resultado."}]}, {"ico": "🪜", "t": "Compromiso y consistencia", "back": "Un primer paso pequeño hace más probable el siguiente. El flujo está diseñado como escalera: ver → descargar → escribir → diagnóstico.", "ejemplos": [{"fmt": "Formulario de landing", "cp": "Solo tres campos: nombre, correo y teléfono. \"Al dejar tus datos se habilita el WhatsApp directo con el equipo.\""}, {"fmt": "WhatsApp", "cp": "\"¿Qué proceso de su empresa le está generando más reprocesos hoy?\" — una pregunta fácil que abre el diagnóstico."}, {"fmt": "Story encuesta", "cp": "\"¿Dónde vive hoy la información de tus pedidos? Excel / WhatsApp / Cuaderno / Un sistema\""}]}, {"ico": "⚠️", "t": "Aversión a la pérdida", "back": "Perder algo que ya se tiene (un cliente, horas del equipo) pesa más que ganar algo nuevo. Se usa con escenas reales, nunca con amenazas.", "ejemplos": [{"fmt": "Reel web + IA", "cp": "\"Son las 11:15 p. m. Alguien entra a tu web y tiene una pregunta. Nadie responde. Mañana ya cotizó con otro.\""}, {"fmt": "Carrusel", "cp": "\"¿Qué pasa con el formulario que alguien llena un domingo?\""}, {"fmt": "Reel software", "cp": "\"Cada lunes tu equipo pierde la mañana consolidando cuatro archivos. Son mañanas que no vuelven.\""}]}, {"ico": "🛡️", "t": "Reducción de riesgo percibido", "back": "Ante una compra que da miedo, se elige la opción que hace visible y pequeño el riesgo: hitos, entregables, exclusiones y qué queda a nombre del cliente.", "ejemplos": [{"fmt": "Carrusel MOFU", "cp": "\"Lo que debes exigir antes de pagar el primer peso de un software.\""}, {"fmt": "Landing", "cp": "\"Desarrollo por hitos: ves avances antes de cada pago.\" (solo si la política comercial lo confirma)"}, {"fmt": "Post", "cp": "\"Alcance, hitos, entregables y exclusiones por escrito. La transparencia es el antídoto contra el miedo a contratar software.\""}]}, {"ico": "🧩", "t": "Facilidad cognitiva", "back": "Lo que se entiende fácil parece más confiable. La jerga sin traducir genera desconfianza, no autoridad.", "ejemplos": [{"fmt": "Post", "cp": "En vez de \"integramos vía API\": \"tu tienda y tu inventario se actualizan solos\"."}, {"fmt": "Carrusel", "cp": "\"ERP vs. CRM: diferencias y cuándo implementar cada uno\", en lenguaje de gerencia."}, {"fmt": "Reel", "cp": "\"Una sola versión de la información, a tiempo para decidir.\""}]}, {"ico": "🖼️", "t": "Encuadre", "back": "El mismo hecho se percibe distinto según cómo se presente. Image Colombia encuadra desde el resultado de negocio, no desde la herramienta.", "ejemplos": [{"fmt": "Bio / anuncio", "cp": "En vez de \"hacemos páginas web\": \"Tu web recibe, atiende y organiza a tus clientes potenciales\"."}, {"fmt": "Reel", "cp": "\"No es falta de compromiso. Es falta de sistema.\""}, {"fmt": "LinkedIn", "cp": "\"No necesitas reemplazar todo. Necesitas conectarlo bien.\""}]}];
-
-var grid = document.getElementById('sesgosGrid');
-sesgos.forEach(function(s){
-  var wrap = document.createElement('div');
-  wrap.className = 'card-wrapper';
-  var examplesHtml = s.ejemplos.map(function(ex){
-    return '<div class="ex-item"><span class="fmt">'+ex.fmt+'</span><span class="cp">'+ex.cp+'</span></div>';
-  }).join('');
-  wrap.innerHTML =
-    '<div class="flip-inner">' +
-      '<div class="card-face card-front">' +
-        '<div class="ico">'+s.ico+'</div>' +
-        '<div class="t">'+s.t+'</div>' +
-        '<div class="hint">Toca para ver 3 ejemplos</div>' +
-      '</div>' +
-      '<div class="card-face card-back">' +
-        '<div class="t">'+s.t+'</div>' +
-        '<p>'+s.back+'</p>' +
-        '<div class="ex-label">3 ejemplos aplicados a Image Colombia</div>' +
-        examplesHtml +
-      '</div>' +
-    '</div>';
-  function toggle(e){ e.preventDefault(); wrap.classList.toggle('is-flipped'); }
-  wrap.addEventListener('click', toggle);
-  wrap.addEventListener('touchstart', toggle, {passive:false});
-  grid.appendChild(wrap);
-});
-
-// ============ SIDEBAR TOGGLE (mobile) ============
-var sidebar = document.getElementById('sidebar');
-var overlay = document.getElementById('overlay');
-function toggleSidebar(){
-  sidebar.classList.toggle('open');
-  overlay.classList.toggle('show');
-}
-
-// ============ NAV / SCROLL ============
-var mainEl = document.getElementById('main');
-function navTo(id){
-  var target = document.getElementById(id);
-  if(!target) return;
-  var offset = target.offsetTop;
-  if('scrollBehavior' in document.documentElement.style){
-    mainEl.scrollTo({ top: offset - 24, behavior: 'smooth' });
-  } else {
-    mainEl.scrollTop = offset - 24;
-  }
-  if(window.innerWidth <= 1024){
-    sidebar.classList.remove('open');
-    overlay.classList.remove('show');
-  }
-}
-
-// ============ SCROLLSPY ============
-var sections = Array.prototype.slice.call(document.querySelectorAll('section.block'));
-var navlinks = Array.prototype.slice.call(document.querySelectorAll('.navlink'));
-function updateActive(){
-  var scrollPos = mainEl.scrollTop + 80;
-  var current = sections[0] ? sections[0].id : null;
-  for(var i=0; i<sections.length; i++){
-    if(sections[i].offsetTop <= scrollPos){ current = sections[i].id; }
-  }
-  navlinks.forEach(function(l){
-    l.classList.toggle('active', l.getAttribute('data-id') === current);
+  document.querySelectorAll('.card-flip').forEach(function(card){
+    card.addEventListener('click', function(){
+      card.classList.toggle('flipped');
+    });
   });
-}
-mainEl.addEventListener('scroll', updateActive, {passive:true});
-updateActive();
+
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.card-flip');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      cards.forEach(function(card){
+        if(f === 'todos' || card.getAttribute('data-segment') === f){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('flipped');
+        }
+      });
+    });
+  });
 </script>
+
 </body>
 </html>
